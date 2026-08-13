@@ -1,0 +1,22 @@
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.skill-group {
+  padding: 20px 22px;
+}
+
+.skill-group-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--accent-teal);
+  margin-bottom: 14px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

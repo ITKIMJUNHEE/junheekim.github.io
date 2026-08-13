@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="10" fill="#1A2230"/>
+  <circle cx="15" cy="24" r="4.5" fill="#0D9488"/>
+  <text x="26" y="29" font-family="JetBrains Mono, ui-monospace, monospace" font-size="16" font-weight="600" fill="#F7F9FB">JK</text>
+</svg>
