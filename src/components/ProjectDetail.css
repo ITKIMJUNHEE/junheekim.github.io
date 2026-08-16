@@ -127,6 +127,44 @@
   color: var(--text-muted);
 }
 
+.pd-trouble-section {
+  padding: 28px 26px;
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.pd-trouble-intro {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: -6px;
+}
+
+.pd-trouble-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pd-trouble-jump a {
+  display: inline-flex;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--accent-teal);
+  background: var(--accent-teal-bg);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: 999px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.pd-trouble-jump a:hover {
+  border-color: var(--accent-teal);
+}
+
 .pd-trouble-list {
   display: flex;
   flex-direction: column;
@@ -134,17 +172,18 @@
 }
 
 .pd-trouble {
-  padding: 16px 18px;
+  padding: 20px 22px;
   border-radius: var(--radius-md);
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
+  scroll-margin-top: 76px;
 }
 
 .pd-trouble-title {
-  font-size: 14.5px;
+  font-size: 15.5px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .pd-trouble-dl {
@@ -247,5 +286,22 @@
 @media (max-width: 640px) {
   .project-detail {
     padding: 24px 20px 26px;
+  }
+
+  .pd-trouble-section {
+    padding: 20px 16px;
+  }
+
+  .pd-trouble-dl {
+    grid-template-columns: 1fr;
+    gap: 2px 0;
+  }
+
+  .pd-trouble-dl dt {
+    margin-top: 8px;
+  }
+
+  .pd-trouble-dl dt:first-child {
+    margin-top: 0;
   }
 }

@@ -86,18 +86,28 @@ export default function ProjectDetail({ project }) {
         </div>
       </section>
 
-      <section className="pd-section">
+      <section className="pd-section pd-trouble-section">
         <h4 className="pd-h">Troubleshooting</h4>
+        <p className="pd-trouble-intro">
+          문제 상황부터 원인을 좁혀간 과정, 실제로 고친 방법, 거기서 얻은 교훈까지 남겼습니다.
+        </p>
+        <ul className="pd-trouble-jump">
+          {project.troubleshooting.map((t, i) => (
+            <li key={t.title}>
+              <a href={`#${project.id}-trouble-${i}`}>{t.title}</a>
+            </li>
+          ))}
+        </ul>
         <div className="pd-trouble-list">
-          {project.troubleshooting.map((t) => (
-            <div className="pd-trouble" key={t.title}>
+          {project.troubleshooting.map((t, i) => (
+            <div className="pd-trouble" id={`${project.id}-trouble-${i}`} key={t.title}>
               <p className="pd-trouble-title">{t.title}</p>
               <dl className="pd-trouble-dl">
-                <dt>문제</dt>
+                <dt>문제 상황</dt>
                 <dd>{t.problem}</dd>
-                <dt>원인</dt>
+                <dt>원인 진단 과정</dt>
                 <dd>{t.cause}</dd>
-                <dt>해결</dt>
+                <dt>해결 방법</dt>
                 <dd>{t.fix}</dd>
                 <dt>배운 점</dt>
                 <dd>{t.lesson}</dd>
