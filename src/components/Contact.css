@@ -23,9 +23,18 @@
   flex-shrink: 0;
 }
 
+.contact-github-note {
+  text-align: center;
+  max-width: 560px;
+  margin: 24px auto 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-faint);
+}
+
 .contact-footer {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 16px;
   font-size: 12.5px;
   color: var(--text-faint);
 }

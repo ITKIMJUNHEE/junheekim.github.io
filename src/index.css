@@ -149,7 +149,7 @@ button {
   font-family: var(--font-mono);
 }
 
-/* status chip, shared by StatusBar + ProjectCard */
+/* status chip, shared by StatusBar + Timeline + ProjectDetail */
 .status-chip {
   display: inline-flex;
   align-items: center;

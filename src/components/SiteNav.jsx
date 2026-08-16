@@ -3,6 +3,7 @@ import "./SiteNav.css";
 
 const LINKS = [
   { href: "#about", label: "About" },
+  { href: "#timeline", label: "Timeline" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },

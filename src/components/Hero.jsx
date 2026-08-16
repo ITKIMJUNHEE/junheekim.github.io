@@ -1,7 +1,14 @@
 import StatusBar from "./StatusBar";
+import CountUp from "./CountUp";
 import { profile } from "../data/profile";
 import profilePhoto from "../assets/profile-photo.jpg";
 import "./Hero.css";
+
+const HERO_STATS = [
+  { to: 2, suffix: "", label: "케이스 스터디" },
+  { to: 90000, suffix: "+", label: "부하테스트 요청 (Oasis Tram)" },
+  { to: 3600, suffix: " VU", label: "부하테스트 피크 (Peakly)" },
+];
 
 export default function Hero() {
   return (
@@ -17,6 +24,19 @@ export default function Hero() {
             {profile.role} <span className="hero-role-sep">/</span> {profile.roleSub}
           </p>
           <p className="hero-tagline">{profile.tagline}</p>
+          <p className="hero-now mono">{profile.now}</p>
+
+          <div className="hero-stats">
+            {HERO_STATS.map((s) => (
+              <div className="hero-stat" key={s.label}>
+                <span className="hero-stat-value mono">
+                  <CountUp to={s.to} suffix={s.suffix} />
+                </span>
+                <span className="hero-stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="hero-actions">
             <a className="btn btn-primary" href="#projects">
               프로젝트 보기
@@ -34,7 +54,7 @@ export default function Hero() {
           <div className="hero-photo card">
             <img src={profilePhoto} alt={`${profile.name} 프로필 사진`} />
           </div>
-          <span className="hero-photo-caption mono">{profile.location}</span>
+          <span className="hero-photo-caption mono">{profile.domain}</span>
         </div>
       </div>
 

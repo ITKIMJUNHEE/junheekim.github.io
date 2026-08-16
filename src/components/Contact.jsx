@@ -9,8 +9,7 @@ export default function Contact() {
           <span className="section-kicker">Contact</span>
           <h2 className="section-title">함께 일할 기회를 찾고 있습니다</h2>
           <p className="section-sub contact-sub">
-            클라우드 엔지니어 / Solutions Architect, 또는 클라우드 세일즈 엔지니어(AM) 포지션에 관심이 있습니다.
-            편하게 연락 주세요.
+            클라우드 엔지니어 / Solutions Architect 포지션에 관심이 있습니다. 편하게 연락 주세요.
           </p>
         </div>
         <div className="contact-actions">
@@ -25,7 +24,10 @@ export default function Contact() {
           </a>
         </div>
       </div>
-      <p className="contact-footer mono">© {new Date().getFullYear()} {profile.nameEn}</p>
+      <p className="contact-github-note">{profile.githubNote}</p>
+      <p className="contact-footer mono">
+        © {new Date().getFullYear()} {profile.nameEn}
+      </p>
     </section>
   );
 }
