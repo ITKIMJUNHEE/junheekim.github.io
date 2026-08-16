@@ -1,0 +1,104 @@
+.about-page {
+  padding-top: 64px;
+}
+
+.about-page-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 40px;
+  margin-top: 32px;
+  align-items: start;
+}
+
+.about-bio {
+  max-width: 620px;
+}
+
+.about-para {
+  font-size: 16.5px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.about-council {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.about-council-thumb {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: zoom-in;
+  background: none;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.about-council-thumb:hover {
+  transform: scale(1.08);
+  border-color: var(--accent-teal);
+}
+
+.about-council-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-facts {
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-fact dt {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}
+
+.about-fact dd {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.about-fact dd a {
+  color: var(--accent-teal);
+  text-decoration: none;
+}
+
+.about-fact dd a:hover {
+  text-decoration: underline;
+}
+
+.about-fact-sub {
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+
+@media (max-width: 860px) {
+  .about-page-grid {
+    grid-template-columns: 1fr;
+  }
+}

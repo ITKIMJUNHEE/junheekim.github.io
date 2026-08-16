@@ -29,6 +29,17 @@
   color: var(--text-faint);
 }
 
+.pd-status-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--accent-slate);
+  background: var(--accent-slate-bg);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  display: inline-block;
+}
+
 .pd-section {
   display: flex;
   flex-direction: column;

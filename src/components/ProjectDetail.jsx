@@ -41,6 +41,7 @@ export default function ProjectDetail({ project }) {
           {project.role}
           {project.period ? ` · ${project.period}` : ""}
         </p>
+        {project.statusNote && <p className="pd-status-note">{project.statusNote}</p>}
       </header>
 
       <section className="pd-section">

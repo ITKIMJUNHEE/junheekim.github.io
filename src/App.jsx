@@ -1,24 +1,25 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import SiteNav from "./components/SiteNav";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Timeline from "./components/Timeline";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
+import Home from "./pages/Home";
+import AboutPage from "./pages/About";
+import ProjectPage from "./pages/ProjectPage";
+import StudyPage from "./pages/StudyPage";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
+      <ScrollToTop />
       <SiteNav />
       <main>
-        <Hero />
-        <About />
-        <Timeline />
-        <Projects />
-        <Skills />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects/:slug" element={<ProjectPage />} />
+          <Route path="/study" element={<StudyPage />} />
+        </Routes>
       </main>
-    </>
+    </BrowserRouter>
   );
 }
 

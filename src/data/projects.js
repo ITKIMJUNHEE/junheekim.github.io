@@ -5,6 +5,7 @@ export const projects = [
     tagline: "대전 트램 AI 정책 시뮬레이션 & 관제 플랫폼",
     status: "archived",
     statusLabel: "Archived",
+    statusNote: "AWS 프리티어 만료로 라이브 서버는 현재 종료된 상태입니다.",
     repo: "https://github.com/ITKIMJUNHEE/2026-tram",
     role: "해커톤 프로토타입(팀) → 프로덕션 확장(개인)",
     period: "AWS 프리티어 만료로 아카이브",
@@ -34,11 +35,20 @@ export const projects = [
       },
     ],
     metrics: [
-      { label: "부하테스트", value: "200명 · 90,000+ 요청", sub: "실패 0건" },
-      { label: "p95 지연", value: "100명: <8ms", sub: "200명: 119ms로 급증" },
-      { label: "노드 CPU (200명 구간)", value: "50~62%", sub: "이 지점이 현재 스펙의 변곡점" },
+      { label: "에러율 (10~200명 전 구간)", value: "0%", sub: "k6로 10→30→50→100→200명 단계적 테스트" },
+      { label: "p95 지연시간", value: "100명 8ms → 200명 119ms", sub: "200명 구간부터 급격히 증가" },
+      { label: "p99 지연시간 (200명)", value: "364ms", sub: "노드 CPU 50~62%까지 상승" },
     ],
     troubleshooting: [
+      {
+        title: "EC2 단일 인스턴스의 실질적 부하 한계 확인",
+        problem: "지금 스펙(EC2 단일 인스턴스, 2vCPU)이 동시 사용자 몇 명까지 안정적인지 알 수 없었습니다.",
+        cause:
+          "시민 대시보드 공개 API(/api/health, /api/stations, /api/weather)를 대상으로 k6 부하테스트를 10→30→50→100→200명 순으로 단계적으로 진행해 지연시간 추이를 측정했습니다.",
+        fix: "100명까지는 p95 지연시간이 8ms 이내로 안정적이었지만, 200명 구간부터 p95 119ms·p99 364ms로 지연시간이 급격히 증가하는 것을 확인했습니다. 이 구간에서도 에러율은 0%를 유지했지만, 노드 CPU 사용률이 50~62%까지 상승했습니다.",
+        lesson:
+          "'괜찮다'를 정성적으로 말하기보다 몇 명부터 어떤 지표가 어떻게 나빠지는지 구체적인 숫자로 확인해두면, 다음에 어느 시점에서 스펙을 올려야 하는지 판단할 근거가 생깁니다.",
+      },
       {
         title: "GitOps 이미지 태그 치환 버그 2건 → ImagePullBackOff",
         problem: "ArgoCD가 동기화한 파드가 ImagePullBackOff로 뜨지 않음.",
@@ -91,8 +101,9 @@ export const projects = [
     id: "peakly",
     name: "Peakly",
     tagline: "감정 곡선 기반 영화 추천 서비스",
-    status: "healthy",
-    statusLabel: "Healthy",
+    status: "archived",
+    statusLabel: "Archived",
+    statusNote: "부트캠프 종료 후 팀 인프라가 정리되어 라이브 서버는 현재 종료된 상태입니다.",
     repo: "https://github.com/ITKIMJUNHEE/202605_KakaoCloud_AIaaS",
     role: "카카오클라우드 AIaaS 4기 부트캠프 · Team 4K",
     period: "ML(전처리·모델 학습) + 프론트엔드 일부 담당",

@@ -1,0 +1,17 @@
+.project-page-crumb {
+  padding-top: 28px;
+}
+
+.project-page-crumb a {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.project-page-crumb a:hover {
+  color: var(--accent-teal);
+}
+
+.project-page {
+  padding-top: 20px;
+}

@@ -1,0 +1,57 @@
+.study-page {
+  padding-top: 20px;
+}
+
+.study-page .section-sub a {
+  color: var(--accent-teal);
+}
+
+.study-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.study-item {
+  padding: 20px 22px;
+}
+
+.study-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.study-item-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.study-item-name:hover {
+  color: var(--accent-teal);
+}
+
+.study-item-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.study-tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-faint);
+}
+
+.study-item-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}

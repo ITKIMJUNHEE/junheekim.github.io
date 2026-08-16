@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import StatusChip from "./StatusChip";
 import { projects } from "../data/projects";
 import "./StatusBar.css";
@@ -12,10 +13,10 @@ export default function StatusBar() {
       <ul className="statusbar-list">
         {projects.map((p) => (
           <li key={p.id}>
-            <a href={`#${p.id}`} className="statusbar-item">
+            <Link to={`/projects/${p.id}`} className="statusbar-item">
               <span className="statusbar-name">{p.name}</span>
               <StatusChip tone={p.status}>{p.statusLabel}</StatusChip>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

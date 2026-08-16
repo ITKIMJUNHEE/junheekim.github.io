@@ -6,7 +6,7 @@ import "./Hero.css";
 
 const HERO_STATS = [
   { to: 2, suffix: "", label: "케이스 스터디" },
-  { to: 90000, suffix: "+", label: "부하테스트 요청 (Oasis Tram)" },
+  { to: 62, suffix: "%", label: "노드 CPU 피크 (Oasis Tram, 200명 부하)" },
   { to: 3600, suffix: " VU", label: "부하테스트 피크 (Peakly)" },
 ];
 

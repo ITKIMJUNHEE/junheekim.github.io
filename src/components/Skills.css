@@ -18,10 +18,24 @@
 .skill-items {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .skill-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.skill-item-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--text-faint);
+}
+
+.skill-item-text {
   display: flex;
   flex-direction: column;
   gap: 3px;
