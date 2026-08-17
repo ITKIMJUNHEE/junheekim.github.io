@@ -39,6 +39,16 @@
   color: var(--text-faint);
 }
 
+.contact-footer a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact-footer a:hover {
+  color: var(--text-muted);
+}
+
 @media (max-width: 720px) {
   .contact-inner {
     padding: 32px 24px;

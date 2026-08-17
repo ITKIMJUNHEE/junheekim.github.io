@@ -37,11 +37,7 @@ export default function ProjectDetail({ project }) {
           <StatusChip tone={project.status}>{project.statusLabel}</StatusChip>
         </div>
         <p className="pd-tagline">{project.tagline}</p>
-        <p className="pd-role mono">
-          {project.role}
-          {project.period ? ` · ${project.period}` : ""}
-        </p>
-        {project.statusNote && <p className="pd-status-note">{project.statusNote}</p>}
+        <p className="pd-role mono">{project.role}</p>
       </header>
 
       <section className="pd-section">
@@ -89,7 +85,8 @@ export default function ProjectDetail({ project }) {
       <section className="pd-section pd-trouble-section">
         <h4 className="pd-h">Troubleshooting</h4>
         <p className="pd-trouble-intro">
-          문제 상황부터 원인을 좁혀간 과정, 실제로 고친 방법, 거기서 얻은 교훈까지 남겼습니다.
+          STAR(Situation-Task-Action-Result)로 정리했습니다. 어떤 상황에서, 뭘 해결해야 했고, 실제로 어떻게
+          움직였고, 결과가 어땠는지 순서대로 남겼습니다.
         </p>
         <ul className="pd-trouble-jump">
           {project.troubleshooting.map((t, i) => (
@@ -103,17 +100,32 @@ export default function ProjectDetail({ project }) {
             <div className="pd-trouble" id={`${project.id}-trouble-${i}`} key={t.title}>
               <p className="pd-trouble-title">{t.title}</p>
               <dl className="pd-trouble-dl">
-                <dt>문제 상황</dt>
-                <dd>{t.problem}</dd>
-                <dt>원인 진단 과정</dt>
-                <dd>{t.cause}</dd>
-                <dt>해결 방법</dt>
-                <dd>{t.fix}</dd>
-                <dt>배운 점</dt>
-                <dd>{t.lesson}</dd>
+                <dt>Situation</dt>
+                <dd>{t.situation}</dd>
+                <dt>Task</dt>
+                <dd>{t.task}</dd>
+                <dt>Action</dt>
+                <dd>{t.action}</dd>
+                <dt>Result</dt>
+                <dd>{t.result}</dd>
               </dl>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="pd-section pd-growth-section">
+        <h4 className="pd-h">기술적으로 늘고 성장한 점</h4>
+        <div className="pd-growth">
+          <p>
+            <strong>Before —</strong> {project.growth.before}
+          </p>
+          <p>
+            <strong>How —</strong> {project.growth.how}
+          </p>
+          <p>
+            <strong>Forward —</strong> {project.growth.forward}
+          </p>
         </div>
       </section>
 

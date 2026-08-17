@@ -42,18 +42,6 @@
   margin-bottom: 32px;
 }
 
-.hero-now {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--accent-amber);
-  background: var(--accent-amber-bg);
-  border: 1px solid rgba(217, 119, 6, 0.25);
-  border-radius: 999px;
-  padding: 5px 12px;
-  margin-bottom: 24px;
-}
 
 .hero-stats {
   display: flex;

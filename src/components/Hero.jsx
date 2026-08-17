@@ -23,7 +23,6 @@ export default function Hero() {
             {profile.role} <span className="hero-role-sep">/</span> {profile.roleSub}
           </p>
           <p className="hero-tagline">{profile.tagline}</p>
-          <p className="hero-now mono">{profile.now}</p>
 
           <div className="hero-stats">
             {HERO_STATS.map((s) => (

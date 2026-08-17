@@ -18,7 +18,7 @@ export const timeline = [
     date: "2025.12",
     title: "Korail AI 해커톤",
     detail:
-      "대전 트램 정책 시뮬레이터 아이디어로 최우수상(2등) 수상. 이때 만든 정적 프로토타입이 이후 Oasis Tram의 출발점이 됩니다.",
+      "4인 팀으로 대전 트램 정책 시뮬레이터를 만들어 최우수상(2등) 수상. 이때 만든 정적 프로토타입이 이후 Oasis Tram의 출발점이 됩니다.",
     tag: "Award",
     status: "stable",
   },
@@ -42,8 +42,7 @@ export const timeline = [
   {
     date: "2026 하반기",
     title: "Oasis Tram — 프로덕션으로 확장",
-    detail:
-      "해커톤 프로토타입을 개인 프로젝트로 이어받아 AWS EC2·k3s·GitOps 파이프라인·ML 마이크로서비스까지 구축. 이후 AWS 프리티어 만료로 아카이브.",
+    detail: "팀 해커톤 프로토타입을 개인 프로젝트로 이어받아 AWS EC2·k3s·GitOps 파이프라인·ML 마이크로서비스까지 구축.",
     tag: "Solo project",
     status: "archived",
   },

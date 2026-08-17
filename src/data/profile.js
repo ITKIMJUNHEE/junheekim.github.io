@@ -6,7 +6,6 @@ export const profile = {
   domain: "junheekim.cloud",
   tagline:
     "인프라부터 백엔드, ML 파이프라인까지 직접 설계하고 운영합니다. 해커톤 프로토타입을 실서비스 수준의 GitOps 인프라로 확장하는 과정을 가장 좋아합니다.",
-  now: "지금: AWS SAA-C03 준비 중",
   email: "rnfnekd369@gmail.com",
   phone: "010-4446-3042",
   github: "https://github.com/ITKIMJUNHEE",

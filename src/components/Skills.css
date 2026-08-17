@@ -4,6 +4,10 @@
   gap: 16px;
 }
 
+.skill-group--tags {
+  grid-column: 1 / -1;
+}
+
 .skill-group {
   padding: 20px 22px;
 }
@@ -51,4 +55,28 @@
   font-size: 12.5px;
   line-height: 1.55;
   color: var(--text-muted);
+}
+
+.skill-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.skill-tag-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--text-faint);
 }

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import StatusChip from "./StatusChip";
 import { projects } from "../data/projects";
-import { fbrl } from "../data/fbrl";
 import "./StatusBar.css";
 
 export default function StatusBar() {
@@ -20,12 +19,6 @@ export default function StatusBar() {
             </Link>
           </li>
         ))}
-        <li>
-          <Link to="/#fbrl" className="statusbar-item">
-            <span className="statusbar-name">{fbrl.name}</span>
-            <StatusChip tone="building">{fbrl.statusLabel}</StatusChip>
-          </Link>
-        </li>
       </ul>
     </div>
   );

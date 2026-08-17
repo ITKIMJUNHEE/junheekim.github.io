@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import AboutPage from "./pages/About";
 import ProjectPage from "./pages/ProjectPage";
 import StudyPage from "./pages/StudyPage";
+import NowPage from "./pages/NowPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/projects/:slug" element={<ProjectPage />} />
           <Route path="/study" element={<StudyPage />} />
+          <Route path="/now" element={<NowPage />} />
         </Routes>
       </main>
     </BrowserRouter>
