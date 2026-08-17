@@ -1,0 +1,124 @@
+.fbrl {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.fbrl-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.fbrl-role {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--accent-teal);
+}
+
+.fbrl-role-detail {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  margin-bottom: 28px;
+}
+
+.fbrl-goals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.fbrl-goal-block {
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.fbrl-goal-title {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-teal);
+  margin-bottom: 8px;
+}
+
+.fbrl-goal-block p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.fbrl-summary {
+  padding: 18px 20px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.fbrl-progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.fbrl-progress-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+.fbrl-progress-title--done {
+  color: var(--accent-teal);
+  border-bottom-color: var(--accent-teal);
+}
+
+.fbrl-progress-title--planned {
+  color: var(--accent-amber);
+  border-bottom-color: var(--accent-amber);
+}
+
+.fbrl-progress-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fbrl-progress-col li {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  padding-left: 16px;
+  position: relative;
+}
+
+.fbrl-progress-col li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--text-faint);
+}
+
+.fbrl-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fbrl-repo-note {
+  font-size: 12.5px;
+  color: var(--text-faint);
+}

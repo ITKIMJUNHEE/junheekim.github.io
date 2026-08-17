@@ -20,10 +20,10 @@ export default function Timeline() {
               <div className="timeline-card card">
                 <div className="timeline-card-head">
                   <span className="timeline-date mono">{item.date}</span>
-                  <StatusChip tone={item.status}>{item.tag}</StatusChip>
+                  {item.tag && <StatusChip tone={item.status}>{item.tag}</StatusChip>}
                 </div>
                 <h3 className="timeline-title">{item.title}</h3>
-                <p className="timeline-detail">{item.detail}</p>
+                {item.detail && <p className="timeline-detail">{item.detail}</p>}
               </div>
             </li>
           ))}
