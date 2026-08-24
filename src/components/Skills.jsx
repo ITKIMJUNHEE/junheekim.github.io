@@ -20,6 +20,8 @@ import {
   SiReact,
   SiNextdotjs,
   SiSupabase,
+  SiRedis,
+  SiApachekafka,
 } from "react-icons/si";
 import { skillGroups } from "../data/skills";
 import "./Skills.css";
@@ -39,6 +41,8 @@ const ICONS = {
   React: SiReact,
   "Next.js": SiNextdotjs,
   Supabase: SiSupabase,
+  Redis: SiRedis,
+  "Kafka / Kafka Connect": SiApachekafka,
   "scikit-learn": SiScikitlearn,
   PyTorch: SiPytorch,
   pgvector: SiPostgresql,

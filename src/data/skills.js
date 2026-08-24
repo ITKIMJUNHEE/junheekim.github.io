@@ -4,9 +4,11 @@ export const skillGroups = [
     tagsOnly: false,
     items: [
       { name: "Docker", note: "Oasis Tram·Peakly 컨테이너화, docker-compose로 로컬 개발 스택 구성" },
-      { name: "k3s", note: "Oasis Tram EC2 단일 노드 배포, Peakly 카카오클라우드 VM 5대 클러스터 참여" },
-      { name: "Traefik / ingress-nginx", note: "Oasis Tram 도메인 라우팅, Peakly 팀 인프라의 진입점 구조 학습" },
-      { name: "Terraform", note: "Oasis Tram EC2·보안그룹 코드화 (init/validate까지, import는 별도 진행 예정)" },
+      { name: "k3s", note: "Oasis Tram·FBRL EC2/Azure VM 단일 노드 배포, Peakly 카카오클라우드 VM 5대 클러스터 참여" },
+      { name: "Traefik / ingress-nginx", note: "Oasis Tram 도메인 라우팅, FBRL Let's Encrypt HTTPS 발급, Peakly 팀 인프라 진입점 구조 학습" },
+      { name: "Terraform", note: "FBRL Azure 리소스 18개(VM·Postgres×2·Redis·ACR·SWA) 코드화·적용, Oasis Tram EC2 코드화(init/validate)" },
+      { name: "Azure", note: "FBRL 인프라 전체 — VM+k3s, Postgres Flexible Server, Managed Redis, ACR, Static Web Apps" },
+      { name: "Kafka / Kafka Connect", note: "FBRL Debezium CDC 기반 Outbox 이벤트 발행 파이프라인 구축·운영" },
     ],
   },
   {
@@ -39,6 +41,7 @@ export const skillGroups = [
       { name: "React" },
       { name: "Next.js" },
       { name: "Supabase" },
+      { name: "Redis" },
       { name: "TypeScript" },
       { name: "Python" },
       { name: "PyTorch" },

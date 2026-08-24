@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { profile } from "../data/profile";
 import "./Contact.css";
 
@@ -28,7 +27,7 @@ export default function Contact() {
       </div>
       <p className="contact-github-note">{profile.githubNote}</p>
       <p className="contact-footer mono">
-        © {new Date().getFullYear()} {profile.nameEn} · <Link to="/now">지금 하고 있는 것</Link>
+        © {new Date().getFullYear()} {profile.nameEn}
       </p>
     </section>
   );

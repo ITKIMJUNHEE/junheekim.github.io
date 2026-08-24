@@ -167,4 +167,88 @@ export const projects = [
       "Supabase",
     ],
   },
+  {
+    id: "fbrl",
+    name: "FBRL",
+    tagline: "금융 백엔드 신뢰성 검증 실험 플랫폼 (Financial Backend Reliability Lab)",
+    status: "stable",
+    statusLabel: "Stable",
+    repo: "https://github.com/fbrlTeam/fbrl-infra",
+    role: "3인 팀 · Infra / SRE 담당",
+    overview:
+      "금융 거래의 신뢰성·분산 동시성 제어·장애 복구 메커니즘을 직접 구현하고 검증하기 위한 백엔드 실험 플랫폼입니다. 실제 서비스가 아니라, 분산 락·Saga·EOD 배치·Kafka CDC 기반 이벤트 발행 같은 금융 백엔드 신뢰성 패턴을 헥사고날 아키텍처 위에서 검증하는 게 목적입니다. 3인 팀(백엔드 1명, 프론트엔드 1명, 인프라 1명)으로 진행 중이며, 본인은 Azure 인프라 구축·Kubernetes 배포·CI/CD, 그리고 백엔드가 구현한 신뢰성 메커니즘이 실제 장애 상황에서도 동작하는지 검증하는 Infra/SRE 역할을 맡고 있습니다.",
+    architecture: {
+      diagram: "none",
+      description:
+        "GitHub Actions가 fbrl-backend를 빌드해 Azure Container Registry에 푸시하고, Azure VM 위 k3s 클러스터에 self-hosted runner가 직접 배포합니다. Traefik이 Let's Encrypt(ACME HTTP-01)로 HTTPS를 발급해 백엔드를 노출하고, 프론트엔드는 Azure Static Web Apps로 별도 배포됩니다. 상태를 직접 들고 있는 Postgres(운영/데모 2대)와 Redis는 Azure 관리형 서비스로 분리했고, Kafka·Kafka Connect만 k3s 안에서 직접 운영하며 Debezium이 PostgreSQL 논리적 복제(WAL) 기반으로 Outbox 이벤트를 Kafka로 발행합니다.",
+    },
+    keyDecisions: [
+      {
+        q: "18개에 달하는 Azure 리소스를 왜 Terraform으로 관리했나?",
+        a: "VM+k3s, Postgres Flexible Server 2대(운영/데모), Azure Managed Redis, ACR, Static Web Apps까지 손으로 만들면 재현이 안 되고, 실수로 리소스를 지웠을 때 복구도 어렵습니다. 코드로 관리해두면 전체 리소스 구성을 한눈에 볼 수 있고, 나중에 같은 환경을 다시 만들 때도 재현 가능하다는 게 핵심 이유였습니다.",
+      },
+      {
+        q: "Kafka·Kafka Connect만 k3s로 옮기고 Postgres·Redis는 왜 Azure 관리형으로 남겼나?",
+        a: "상태를 직접 들고 있는 저장소(DB, 캐시)는 관리형 서비스에 맡기고, 상대적으로 무상태에 가까운 메시징 계층만 직접 운영하며 배운다는 원칙을 세웠습니다. 관리형 서비스의 백업·장애조치까지 직접 구현하는 건 이 프로젝트의 학습 목표가 아니었습니다.",
+      },
+      {
+        q: "Chaos Mesh를 먼저 설치하지 않고 왜 수동으로 장애를 주입했나?",
+        a: "Chaos Mesh 도입은 로드맵에 있지만, 도구부터 세팅하기보다 검증하고 싶은 질문(Kafka가 죽으면 얼마나 걸려 복구되는가, Saga 보상 트랜잭션이 실제로 동작하는가, 배치가 중간에 죽으면 재개할 수 있는가)을 먼저 명확히 하기로 했습니다. docker stop·kill -9 같은 수동 방식으로 3개 시나리오를 먼저 검증해 실제로 뭘 확인해야 하는지 파악한 뒤, Chaos Mesh는 이 수동 검증을 반복 가능하게 만드는 다음 단계로 남겨뒀습니다.",
+      },
+    ],
+    metrics: [
+      { label: "Kafka 장애 복구", value: "브로커 22초 · CDC 5분14초", sub: "리밸런스 지연으로 인한 격차" },
+      { label: "EOD 배치 강제종료 재개", value: "5,000건 · 중복 0 · 누락 0", sub: "kill -9 후 수동 개입으로 복구" },
+      { label: "Terraform 관리 리소스", value: "18개", sub: "Azure VM·Postgres×2·Redis·ACR·SWA" },
+    ],
+    troubleshooting: [
+      {
+        title: "VM 재시작 후 Kafka Connect 커넥터가 통째로 사라짐",
+        situation:
+          "작업 종료 전 최종 상태를 캡처하려는데, Kafka Connect에 등록해둔 main/demo 커넥터가 둘 다 사라져 있는 걸 발견했습니다. 설정은 분명 토픽 기반으로 영속화되도록 구성해뒀는데도 그랬습니다.",
+        task: "재부팅 한 번에 왜 영속화된 설정이 통째로 날아갔는지 원인을 찾아야 했습니다.",
+        action:
+          "VM이 예기치 않게 재부팅되면서 Kafka와 Kafka Connect가 동시에 재시작된 로그를 확인했습니다. Kafka Connect가 설정 저장 토픽을 읽는 시점이 Kafka 브로커의 로그 복구가 끝나기도 전이라, 커넥터가 없는 '빈 상태'로 스냅샷을 찍어버리는 레이스 컨디션이라는 걸 확인했습니다. 실제 데이터는 브로커에 그대로 남아있었고, 설정 자체가 아니라 시작 순서 문제였습니다.",
+        result:
+          "재시작마다 반복될 수 있는 문제라고 판단해, 커넥터 상태를 확인하고 없으면 자동으로 재등록하는 스크립트를 만들어 실제로 커넥터를 강제로 지운 뒤 재등록되는 것까지 검증하고 커밋했습니다. '설정이 영속화되어 있다'와 '재시작 후에도 그 순서대로 복구된다'는 서로 다른 문제라는 걸 확인한 경험이었습니다.",
+      },
+      {
+        title: "커넥터 재등록 중 발생한 비밀번호 평문 노출 사고",
+        situation:
+          "위 문제로 커넥터를 재등록하는 과정에서, 등록 응답에 DB 비밀번호가 마스킹 없이 그대로 노출되는 걸 뒤늦게 발견했습니다.",
+        task: "이미 노출된 비밀번호를 어디까지 되돌려야 안전한지 판단하고, 같은 실수가 재발하지 않게 만들어야 했습니다.",
+        action:
+          "노출 범위를 지레짐작하지 않고 Postgres 서버 레벨 비밀번호부터 IaC 변수(terraform.tfvars), k3s Secret, 그 값을 참조하는 커넥터 설정과 백엔드 Pod까지 전 구간을 순서대로 교체했습니다. 커넥터 등록 시 요청 본문은 서버 쪽에서만 값을 채우고, 응답은 비밀번호를 마스킹한 뒤에만 확인하는 걸 표준 절차로 만들었습니다.",
+        result:
+          "전 구간 교체 후 재검증까지 마쳤습니다. 이후로는 시크릿을 다룰 때 커맨드라인 인자(--from-literal)처럼 셸 히스토리나 프로세스 목록에 남는 방식 대신, stdin으로만 흘려보내는 방식을 기본으로 쓰게 됐습니다.",
+      },
+    ],
+    growth: {
+      before:
+        "이전에는 Terraform·Kubernetes를 문서로만 익혔고, 여러 클라우드 리소스를 한 번에 관리하거나 실제 장애를 재현해본 적은 없었습니다.",
+      how: "Azure에 18개 리소스를 Terraform으로 직접 구성하고, VM 재부팅·비밀번호 노출 같은 예상 못 한 사고를 실시간으로 겪으며 대응하는 과정에서 '설계한 대로 동작하는지'와 '실제로 재시작·장애 후에도 그 상태를 유지하는지'는 완전히 다른 질문이라는 걸 체감했습니다. Kafka 다운 시 브로커 복구(22초)와 CDC 파이프라인 정상화(5분14초) 사이의 격차처럼, 컴포넌트 하나하나가 아니라 컴포넌트 사이의 복구 시간 차이를 직접 재고 나서야 보이는 문제들이 있다는 것도 배웠습니다.",
+      forward:
+        "Oasis Tram과 Peakly를 거치며 넓어진 인프라 관심이, 이 프로젝트에서 실제 장애를 만들고 대응하는 과정을 통해 SRE/신뢰성 쪽으로 더 구체화됐습니다. 클라우드 인프라를 만드는 것만큼, 만든 인프라가 실패 상황에서 어떻게 행동하는지 검증하는 일에 흥미를 느낀다는 걸 확인한 프로젝트였습니다.",
+    },
+    evidence: [
+      { key: "fbrl-acr-overview", caption: "Azure Container Registry — fbrl-backend 이미지 태그·매니페스트" },
+      { key: "fbrl-kafka-connect-status", caption: "k3s 위 Kafka Connect — main/demo 커넥터 RUNNING 상태" },
+      { key: "fbrl-postgres-overview", caption: "Azure Postgres Flexible Server — 운영 DB 개요" },
+    ],
+    stack: [
+      "Azure",
+      "Terraform",
+      "k3s",
+      "Traefik",
+      "GitHub Actions",
+      "Docker",
+      "Kafka",
+      "Kafka Connect",
+      "Debezium",
+      "Redis",
+      "PostgreSQL",
+      "Jaeger",
+      "Spring Boot",
+    ],
+  },
 ];

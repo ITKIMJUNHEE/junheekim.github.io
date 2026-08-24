@@ -14,6 +14,9 @@ import argocdOverview from "../assets/argocd-applications-overview.png";
 import grafanaLoadTest from "../assets/grafana-load-test-hpa.png";
 import supabaseSchema from "../assets/supabase-schema-visualizer.png";
 import understandMap from "../assets/understand-peakly-architecture-map.png";
+import fbrlAcr from "../assets/fbrl-acr-overview.png";
+import fbrlKafkaConnect from "../assets/fbrl-kafka-connect-status.png";
+import fbrlPostgres from "../assets/fbrl-postgres-overview.png";
 
 const IMAGES = {
   "tram-dashboard": tramDashboard,
@@ -24,6 +27,9 @@ const IMAGES = {
   "grafana-load-test-hpa": grafanaLoadTest,
   "supabase-schema-visualizer": supabaseSchema,
   "understand-peakly-architecture-map": understandMap,
+  "fbrl-acr-overview": fbrlAcr,
+  "fbrl-kafka-connect-status": fbrlKafkaConnect,
+  "fbrl-postgres-overview": fbrlPostgres,
 };
 
 export default function ProjectDetail({ project }) {
