@@ -35,6 +35,15 @@ export default function AboutPage() {
                   <img src={studentCouncilPhoto} alt="" />
                 </button>
               </p>
+
+              <div className="about-soft-skills">
+                {about.softSkills.map((s) => (
+                  <div className="about-soft-skill card" key={s.title}>
+                    <h3 className="about-soft-skill-title">{s.title}</h3>
+                    <p className="about-soft-skill-detail">{s.detail}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <dl className="about-facts card">

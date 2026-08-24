@@ -6,9 +6,9 @@ export const projects = [
     status: "archived",
     statusLabel: "Archived",
     repo: "https://github.com/ITKIMJUNHEE/2026-tram",
-    role: "Korail AI 해커톤 4인 팀 프로토타입 → 개인 프로젝트로 확장",
+    role: "Korail AI 해커톤 4인 팀 · 이후 팀원들과 역할 분담해 프로덕션 확장, 본인은 인프라 담당",
     overview:
-      "정거장 좌표·시뮬레이션 로직이 프론트엔드에 하드코딩된 정적 프로토타입은 Korail AI 해커톤에서 4인 팀으로 만들었습니다. 대회 종료 후 이 프로토타입을 개인 프로젝트로 이어받아, React+Express+PostgreSQL 풀스택, JWT 인증 관제 시스템, Python ML 수요 예측, k3s+ArgoCD GitOps 배포, Prometheus+Grafana 모니터링까지 갖춘 서비스로 확장했습니다.",
+      "정거장 좌표·시뮬레이션 로직이 프론트엔드에 하드코딩된 정적 프로토타입을 Korail AI 해커톤에서 4인 팀으로 만들었습니다. Korail 해커톤 이후 팀원들과 역할을 나눠 프로덕션급 확장을 진행했고, 본인은 인프라를 담당해 React+Express+PostgreSQL 풀스택 배포, k3s+ArgoCD GitOps 파이프라인, Prometheus+Grafana 모니터링을 구축했습니다. JWT 인증 관제 시스템과 Python ML 수요 예측 서비스도 이 확장 과정에서 함께 갖춰졌습니다.",
     architecture: {
       diagram: "tram-image",
       description:
@@ -66,6 +66,7 @@ export const projects = [
         "코드를 배포 가능한 상태로 만드는 것과, 그 배포를 안정적으로 반복 가능하게 만드는 것은 서로 다른 기술이라는 걸 알게 됐습니다. 후자(배포 자동화, 관측성, 장애 대응)에 더 흥미를 느꼈고, 이 경험이 클라우드 인프라 쪽으로 방향을 잡는 계기가 됐습니다.",
     },
     evidence: [
+      { key: "korail-hackathon-award-team", caption: "Korail AI 해커톤 2025 최우수상(2등) — 4인 팀 수상 사진" },
       { key: "tram-dashboard", caption: "시민 대시보드 — 실시간 날씨, 정거장 지도, 재난/민원 관제 콘솔" },
       { key: "tram-admin", caption: "관리자 대시보드 — 정거장/로그/시나리오 통계, ArgoCD·Grafana 바로가기" },
       { key: "tram-simulation", caption: "정책 시뮬레이터 — 배차/버스감축 조정 → 예산·혼잡도·민원 위험 분석" },
@@ -99,7 +100,7 @@ export const projects = [
     overview:
       "영화 자막에서 장면별 감정(arousal/valence)을 추론해 '클라이맥스 그래프'를 그리고, 벡터 유사도로 취향 기반 추천을 제공하는 서비스입니다. 카카오클라우드 VM 5대 위 K3s 클러스터에서 ArgoCD GitOps로 운영했습니다. 본인 역할은 프론트엔드와 ML(전처리·모델 학습)이 메인이었지만, 팀 인프라 세팅 과정에도 참여하며 GitOps·Kubernetes 운영을 직접 배웠습니다.",
     architecture: {
-      diagram: "peakly-svg",
+      diagram: "peakly-images",
       description:
         "브라우저 요청은 4가지 경로로 나뉩니다 — 공개 읽기는 anon 키로 Supabase를 직접 호출(RLS로 행 단위 통제), 메인 영화 목록은 Next.js 서버가 캐싱해서 반환, 매니저 쓰기 작업은 세션 인증 후 FastAPI를 경유, 외부 고객의 점수 조회는 API 키 인증을 거쳐 별도 AI DB에 접근합니다. 인프라는 카카오클라우드 VM 5대로 나뉘어 있고(앱 2대, DB 1대, GPU/AI 1대, 컨트롤플레인 1대), ArgoCD가 이 전체를 GitOps로 동기화합니다.",
     },

@@ -1,15 +1,17 @@
 import { useState } from "react";
 import StatusChip from "./StatusChip";
 import Lightbox from "./Lightbox";
-import RepoActivity from "./RepoActivity";
-import PeaklyDiagram from "./diagrams/PeaklyDiagram";
 import "./ProjectDetail.css";
+import "./diagrams/diagrams.css";
 
 import tramArchitecture from "../assets/tram-architecture.png";
 import tramDashboard from "../assets/tram-dashboard.png";
 import tramAdmin from "../assets/tram-admin.png";
 import tramSimulation from "../assets/tram-simulation.png";
 import tramPrediction from "../assets/tram-prediction.png";
+import korailAwardTeam from "../assets/korail-hackathon-award-team.jpg";
+import peaklySystemArchitecture from "../assets/peakly-system-architecture.png";
+import peaklyCloudArchitecture from "../assets/peakly-cloud-architecture.png";
 import argocdOverview from "../assets/argocd-applications-overview.png";
 import grafanaLoadTest from "../assets/grafana-load-test-hpa.png";
 import supabaseSchema from "../assets/supabase-schema-visualizer.png";
@@ -23,6 +25,7 @@ const IMAGES = {
   "tram-admin": tramAdmin,
   "tram-simulation": tramSimulation,
   "tram-prediction": tramPrediction,
+  "korail-hackathon-award-team": korailAwardTeam,
   "argocd-applications-overview": argocdOverview,
   "grafana-load-test-hpa": grafanaLoadTest,
   "supabase-schema-visualizer": supabaseSchema,
@@ -52,6 +55,23 @@ export default function ProjectDetail({ project }) {
       </section>
 
       <section className="pd-section">
+        <h4 className="pd-h">Evidence</h4>
+        <div className="pd-evidence-grid">
+          {project.evidence.map((e) => (
+            <button
+              key={e.key}
+              className="pd-evidence-item"
+              onClick={() => setLightbox(e)}
+              aria-label={`${e.caption} 크게 보기`}
+            >
+              <img src={IMAGES[e.key]} alt={e.caption} loading="lazy" />
+              <span className="pd-evidence-caption">{e.caption}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="pd-section">
         <h4 className="pd-h">Architecture</h4>
         <p className="pd-body">{project.architecture.description}</p>
         {project.architecture.diagram === "tram-image" && (
@@ -60,7 +80,18 @@ export default function ProjectDetail({ project }) {
             <figcaption className="diagram-caption">레포에 포함된 실제 아키텍처 다이어그램 (docs/diagrams)</figcaption>
           </figure>
         )}
-        {project.architecture.diagram === "peakly-svg" && <PeaklyDiagram />}
+        {project.architecture.diagram === "peakly-images" && (
+          <div className="pd-diagram-pair">
+            <figure className="diagram-figure pd-diagram-image">
+              <img src={peaklySystemArchitecture} alt="Peakly 시스템 아키텍처 다이어그램" />
+              <figcaption className="diagram-caption">시스템 아키텍처 — K8s·멀티클라우드·CI/CD 흐름 (부트캠프 최종 발표자료)</figcaption>
+            </figure>
+            <figure className="diagram-figure pd-diagram-image">
+              <img src={peaklyCloudArchitecture} alt="Peakly 클라우드 아키텍처 다이어그램" />
+              <figcaption className="diagram-caption">클라우드 아키텍처 — VPC·서브넷·AZ 구성 (부트캠프 최종 발표자료)</figcaption>
+            </figure>
+          </div>
+        )}
       </section>
 
       <section className="pd-section">
@@ -133,28 +164,6 @@ export default function ProjectDetail({ project }) {
             <strong>Forward —</strong> {project.growth.forward}
           </p>
         </div>
-      </section>
-
-      <section className="pd-section">
-        <h4 className="pd-h">Evidence</h4>
-        <div className="pd-evidence-grid">
-          {project.evidence.map((e) => (
-            <button
-              key={e.key}
-              className="pd-evidence-item"
-              onClick={() => setLightbox(e)}
-              aria-label={`${e.caption} 크게 보기`}
-            >
-              <img src={IMAGES[e.key]} alt={e.caption} loading="lazy" />
-              <span className="pd-evidence-caption">{e.caption}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="pd-section">
-        <h4 className="pd-h">Recent commits</h4>
-        <RepoActivity repo={project.repo} />
       </section>
 
       <div className="project-footer">

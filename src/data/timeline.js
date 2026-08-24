@@ -42,8 +42,8 @@ export const timeline = [
   {
     date: "2026 하반기",
     title: "Oasis Tram — 프로덕션으로 확장",
-    detail: "팀 해커톤 프로토타입을 개인 프로젝트로 이어받아 AWS EC2·k3s·GitOps 파이프라인·ML 마이크로서비스까지 구축.",
-    tag: "Solo project",
+    detail: "팀원들과 역할을 나눠 AWS EC2·k3s·GitOps 파이프라인·ML 마이크로서비스까지 구축, 본인은 인프라 담당.",
+    tag: "Team project",
     status: "archived",
   },
   {

@@ -55,6 +55,31 @@
   display: block;
 }
 
+.about-soft-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  max-width: 560px;
+}
+
+.about-soft-skill {
+  padding: 16px 18px;
+}
+
+.about-soft-skill-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-teal);
+  margin-bottom: 6px;
+}
+
+.about-soft-skill-detail {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
 .about-facts {
   padding: 24px 26px;
   display: flex;
