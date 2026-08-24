@@ -4,8 +4,8 @@ export const profile = {
   role: "Cloud Infrastructure",
   roleSub: "MSP",
   domain: "junheekim.cloud",
-  tagline:
-    "인프라부터 백엔드, ML 파이프라인까지 직접 설계하고 운영합니다. 해커톤 프로토타입을 실서비스 수준의 GitOps 인프라로 확장하는 과정을 가장 좋아합니다.",
+  taglineMain: "인프라를 설계하고, 직접 운영하며 검증합니다.",
+  taglineSub: "직접 만들어봤기 때문에, 기술적으로 더 정확하게 설명할 수 있습니다.",
   email: "rnfnekd369@gmail.com",
   phone: "010-4446-3042",
   github: "https://github.com/ITKIMJUNHEE",

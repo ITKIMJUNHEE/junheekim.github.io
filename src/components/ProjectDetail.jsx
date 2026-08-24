@@ -12,10 +12,13 @@ import tramPrediction from "../assets/tram-prediction.png";
 import korailAwardTeam from "../assets/korail-hackathon-award-team.jpg";
 import peaklySystemArchitecture from "../assets/peakly-system-architecture.png";
 import peaklyCloudArchitecture from "../assets/peakly-cloud-architecture.png";
-import argocdOverview from "../assets/argocd-applications-overview.png";
-import grafanaLoadTest from "../assets/grafana-load-test-hpa.png";
-import supabaseSchema from "../assets/supabase-schema-visualizer.png";
-import understandMap from "../assets/understand-peakly-architecture-map.png";
+import peaklyClimaxGraph from "../assets/peakly-climax-graph.png";
+import peaklyGraphComparison from "../assets/peakly-graph-comparison.png";
+import peaklyFilterBar from "../assets/peakly-filter-bar.png";
+import peaklyOnboarding from "../assets/peakly-onboarding.png";
+import peaklyManagerLogin from "../assets/peakly-manager-login.png";
+import peaklyManagerDashboard from "../assets/peakly-manager-dashboard.png";
+import peaklyManagerApiKeys from "../assets/peakly-manager-api-keys.png";
 import fbrlAcr from "../assets/fbrl-acr-overview.png";
 import fbrlKafkaConnect from "../assets/fbrl-kafka-connect-status.png";
 import fbrlPostgres from "../assets/fbrl-postgres-overview.png";
@@ -26,14 +29,31 @@ const IMAGES = {
   "tram-simulation": tramSimulation,
   "tram-prediction": tramPrediction,
   "korail-hackathon-award-team": korailAwardTeam,
-  "argocd-applications-overview": argocdOverview,
-  "grafana-load-test-hpa": grafanaLoadTest,
-  "supabase-schema-visualizer": supabaseSchema,
-  "understand-peakly-architecture-map": understandMap,
+  "peakly-climax-graph": peaklyClimaxGraph,
+  "peakly-graph-comparison": peaklyGraphComparison,
+  "peakly-filter-bar": peaklyFilterBar,
+  "peakly-onboarding": peaklyOnboarding,
+  "peakly-manager-login": peaklyManagerLogin,
+  "peakly-manager-dashboard": peaklyManagerDashboard,
+  "peakly-manager-api-keys": peaklyManagerApiKeys,
   "fbrl-acr-overview": fbrlAcr,
   "fbrl-kafka-connect-status": fbrlKafkaConnect,
   "fbrl-postgres-overview": fbrlPostgres,
 };
+
+function evidenceGroups(evidence) {
+  const order = [];
+  const map = new Map();
+  for (const item of evidence) {
+    const key = item.group || null;
+    if (!map.has(key)) {
+      map.set(key, []);
+      order.push(key);
+    }
+    map.get(key).push(item);
+  }
+  return order.map((key) => [key, map.get(key)]);
+}
 
 export default function ProjectDetail({ project }) {
   const [lightbox, setLightbox] = useState(null);
@@ -56,19 +76,24 @@ export default function ProjectDetail({ project }) {
 
       <section className="pd-section">
         <h4 className="pd-h">Evidence</h4>
-        <div className="pd-evidence-grid">
-          {project.evidence.map((e) => (
-            <button
-              key={e.key}
-              className="pd-evidence-item"
-              onClick={() => setLightbox(e)}
-              aria-label={`${e.caption} 크게 보기`}
-            >
-              <img src={IMAGES[e.key]} alt={e.caption} loading="lazy" />
-              <span className="pd-evidence-caption">{e.caption}</span>
-            </button>
-          ))}
-        </div>
+        {evidenceGroups(project.evidence).map(([group, items]) => (
+          <div className="pd-evidence-group" key={group || "_"}>
+            {group && <p className="pd-evidence-group-title">{group}</p>}
+            <div className="pd-evidence-grid">
+              {items.map((e) => (
+                <button
+                  key={e.key}
+                  className="pd-evidence-item"
+                  onClick={() => setLightbox(e)}
+                  aria-label={`${e.caption} 크게 보기`}
+                >
+                  <img src={IMAGES[e.key]} alt={e.caption} loading="lazy" />
+                  <span className="pd-evidence-caption">{e.caption}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       <section className="pd-section">

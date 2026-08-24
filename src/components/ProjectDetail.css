@@ -231,6 +231,19 @@
   letter-spacing: 0.02em;
 }
 
+.pd-evidence-group + .pd-evidence-group {
+  margin-top: 24px;
+}
+
+.pd-evidence-group-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+
 .pd-evidence-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

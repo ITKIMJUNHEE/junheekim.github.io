@@ -35,10 +35,20 @@
   color: var(--text-faint);
 }
 
-.hero-tagline {
-  font-size: 17px;
-  line-height: 1.7;
-  max-width: 520px;
+.hero-tagline-main {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+  max-width: 560px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.hero-tagline-sub {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 480px;
+  color: var(--text-muted);
   margin-bottom: 32px;
 }
 
@@ -106,7 +116,8 @@
     text-align: center;
   }
 
-  .hero-tagline {
+  .hero-tagline-main,
+  .hero-tagline-sub {
     margin-inline: auto;
   }
 

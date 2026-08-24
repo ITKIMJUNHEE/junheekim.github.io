@@ -148,10 +148,13 @@ export const projects = [
         "Oasis Tram에서 막 생기기 시작한 인프라 쪽 관심이, 이 프로젝트에서 실제 팀 규모의 GitOps 운영을 직접 보면서 훨씬 구체적으로 굳어졌습니다. 무언가를 만드는 것보다, 여러 사람이 만든 걸 안정적으로 돌아가게 하는 쪽에 더 끌린다는 걸 확인한 프로젝트였습니다.",
     },
     evidence: [
-      { key: "argocd-applications-overview", caption: "ArgoCD — 전체 애플리케이션 GitOps 동기화 상태" },
-      { key: "grafana-load-test-hpa", caption: "Grafana — 부하테스트 중 레플리카·노드 CPU·Pending 파드 대시보드" },
-      { key: "supabase-schema-visualizer", caption: "Supabase — movies / movie_vectors 스키마 (pgvector)" },
-      { key: "understand-peakly-architecture-map", caption: "코드베이스 지식그래프 — 레이어별 구조 시각화" },
+      { key: "peakly-climax-graph", group: "서비스 화면", caption: "클라이맥스 그래프 — 장면 감정(arousal) 타임라인 시각화" },
+      { key: "peakly-graph-comparison", group: "서비스 화면", caption: "그래프 비교 추천 — pgvector 코사인 유사도 기반" },
+      { key: "peakly-filter-bar", group: "서비스 화면", caption: "필터바 — 정렬·필터·검색" },
+      { key: "peakly-onboarding", group: "서비스 화면", caption: "온보딩 — 첫 방문 안내" },
+      { key: "peakly-manager-login", group: "매니저 콘솔", caption: "매니저 로그인 — 세션 인증" },
+      { key: "peakly-manager-dashboard", group: "매니저 콘솔", caption: "대시보드 — 방문 통계·모델 지표(MAE/Spearman)" },
+      { key: "peakly-manager-api-keys", group: "매니저 콘솔", caption: "API 키 관리" },
     ],
     stack: [
       "K3s",

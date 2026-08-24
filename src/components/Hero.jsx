@@ -22,7 +22,8 @@ export default function Hero() {
           <p className="hero-role">
             {profile.role} <span className="hero-role-sep">/</span> {profile.roleSub}
           </p>
-          <p className="hero-tagline">{profile.tagline}</p>
+          <p className="hero-tagline-main">{profile.taglineMain}</p>
+          <p className="hero-tagline-sub">{profile.taglineSub}</p>
 
           <div className="hero-stats">
             {HERO_STATS.map((s) => (
