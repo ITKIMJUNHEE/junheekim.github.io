@@ -16,7 +16,7 @@ export const skillGroups = [
     tagsOnly: false,
     items: [
       { name: "GitHub Actions", note: "이미지 빌드 → GHCR push → 매니페스트 태그 자동 커밋 파이프라인 구성" },
-      { name: "ArgoCD", note: "두 프로젝트 모두 GitOps 자동 동기화 구성·운영" },
+      { name: "ArgoCD", note: "Oasis Tram·Peakly 자동 동기화 구성·운영, FBRL GitOps 개념검증(읽기 전용) 설치" },
       { name: "Argo Workflows", note: "Peakly ML 파이프라인(자막 파싱·라벨링·학습·벡터화) 오케스트레이션 참여" },
     ],
   },
@@ -24,8 +24,8 @@ export const skillGroups = [
     category: "Monitoring",
     tagsOnly: false,
     items: [
-      { name: "Prometheus", note: "kube-prometheus-stack으로 클러스터·앱 메트릭 수집 구성" },
-      { name: "Grafana", note: "부하테스트 중 노드 CPU·레플리카 지표를 실시간으로 확인하며 병목 분석" },
+      { name: "Prometheus", note: "Oasis Tram·FBRL kube-prometheus-stack으로 클러스터·앱 메트릭 수집 구성" },
+      { name: "Grafana", note: "Oasis Tram·Peakly 부하테스트 중 노드 CPU·레플리카 지표 병목 분석, FBRL 클러스터·백엔드 메트릭 대시보드 구성" },
       { name: "k6", note: "Oasis Tram 단계적 부하테스트(10→200명) 스크립트 작성·실행" },
       { name: "Jaeger", note: "FBRL 로컬 인프라에 분산 트레이싱 구성" },
     ],

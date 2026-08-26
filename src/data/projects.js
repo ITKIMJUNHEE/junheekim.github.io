@@ -14,6 +14,11 @@ export const projects = [
       description:
         "EC2 단일 인스턴스 위 k3s 단일 노드 클러스터. Traefik이 도메인 하나로 프론트엔드/백엔드 라우팅을 모두 처리하고, ML 서비스는 백엔드와 분리된 프로세스로 구성해 장애 시에도 규칙 기반 폴백으로 서비스 연속성을 확보했습니다. ArgoCD가 프론트/백엔드를 자동 배포하고, Prometheus가 백엔드 메트릭을 수집해 Grafana로 시각화합니다.",
     },
+    cloudServices: [
+      { service: "EC2", usage: "애플리케이션 서버 호스팅 — 단일 인스턴스에 k3s 클러스터 구동" },
+      { service: "EIP", usage: "고정 퍼블릭 IP 확보" },
+      { service: "보안 그룹", usage: "인바운드 포트 접근 제어" },
+    ],
     keyDecisions: [
       {
         q: "왜 SQLite에서 PostgreSQL로 옮겼나?",
@@ -66,11 +71,13 @@ export const projects = [
         "코드를 배포 가능한 상태로 만드는 것과, 그 배포를 안정적으로 반복 가능하게 만드는 것은 서로 다른 기술이라는 걸 알게 됐습니다. 후자(배포 자동화, 관측성, 장애 대응)에 더 흥미를 느꼈고, 이 경험이 클라우드 인프라 쪽으로 방향을 잡는 계기가 됐습니다.",
     },
     evidence: [
-      { key: "korail-hackathon-award-team", caption: "Korail AI 해커톤 2025 최우수상(2등) — 4인 팀 수상 사진" },
-      { key: "tram-dashboard", caption: "시민 대시보드 — 실시간 날씨, 정거장 지도, 재난/민원 관제 콘솔" },
-      { key: "tram-admin", caption: "관리자 대시보드 — 정거장/로그/시나리오 통계, ArgoCD·Grafana 바로가기" },
-      { key: "tram-simulation", caption: "정책 시뮬레이터 — 배차/버스감축 조정 → 예산·혼잡도·민원 위험 분석" },
-      { key: "tram-prediction", caption: "혼잡도 예측 지도 — 규칙기반·ML 승객 수요 예측" },
+      { key: "korail-hackathon-award-team", group: "수상", caption: "Korail AI 해커톤 2025 최우수상(2등) — 4인 팀 수상 사진" },
+      { key: "tram-dashboard", group: "서비스 화면", caption: "시민 대시보드 — 실시간 날씨, 정거장 지도, 재난/민원 관제 콘솔" },
+      { key: "tram-admin", group: "서비스 화면", caption: "관리자 대시보드 — 정거장/로그/시나리오 통계, ArgoCD·Grafana 바로가기" },
+      { key: "tram-simulation", group: "서비스 화면", caption: "정책 시뮬레이터 — 배차/버스감축 조정 → 예산·혼잡도·민원 위험 분석" },
+      { key: "tram-prediction", group: "서비스 화면", caption: "혼잡도 예측 지도 — 규칙기반·ML 승객 수요 예측" },
+      { key: "tram-grafana", group: "인프라/모니터링", caption: "Grafana — 클러스터·애플리케이션 메트릭 대시보드" },
+      { key: "tram-argocd", group: "인프라/모니터링", caption: "ArgoCD — GitOps 배포 상태" },
     ],
     stack: [
       "k3s",
@@ -104,6 +111,12 @@ export const projects = [
       description:
         "브라우저 요청은 4가지 경로로 나뉩니다 — 공개 읽기는 anon 키로 Supabase를 직접 호출(RLS로 행 단위 통제), 메인 영화 목록은 Next.js 서버가 캐싱해서 반환, 매니저 쓰기 작업은 세션 인증 후 FastAPI를 경유, 외부 고객의 점수 조회는 API 키 인증을 거쳐 별도 AI DB에 접근합니다. 인프라는 카카오클라우드 VM 5대로 나뉘어 있고(앱 2대, DB 1대, GPU/AI 1대, 컨트롤플레인 1대), ArgoCD가 이 전체를 GitOps로 동기화합니다.",
     },
+    cloudServices: [
+      { service: "VM (Compute)", usage: "Control Plane + Ingress 노드 1대" },
+      { service: "VM (Compute)", usage: "애플리케이션(FE/BE) 노드 2대" },
+      { service: "VM (Compute)", usage: "데이터(Supabase data) 노드 1대" },
+      { service: "GPU VM (Tesla T4)", usage: "Supabase ai + ML 서빙 노드 1대" },
+    ],
     keyDecisions: [
       {
         q: "감정 라벨은 어떻게 만들었나?",
@@ -155,6 +168,8 @@ export const projects = [
       { key: "peakly-manager-login", group: "매니저 콘솔", caption: "매니저 로그인 — 세션 인증" },
       { key: "peakly-manager-dashboard", group: "매니저 콘솔", caption: "대시보드 — 방문 통계·모델 지표(MAE/Spearman)" },
       { key: "peakly-manager-api-keys", group: "매니저 콘솔", caption: "API 키 관리" },
+      { key: "argocd-applications-overview", group: "인프라/모니터링", caption: "ArgoCD — 전체 애플리케이션 GitOps 동기화 상태" },
+      { key: "grafana-load-test-hpa", group: "인프라/모니터링", caption: "Grafana — 부하테스트 중 레플리카·노드 CPU·Pending 파드 대시보드" },
     ],
     stack: [
       "K3s",
@@ -180,12 +195,19 @@ export const projects = [
     repo: "https://github.com/fbrlTeam/fbrl-infra",
     role: "3인 팀 · Infra / SRE 담당",
     overview:
-      "금융 거래의 신뢰성·분산 동시성 제어·장애 복구 메커니즘을 직접 구현하고 검증하기 위한 백엔드 실험 플랫폼입니다. 실제 서비스가 아니라, 분산 락·Saga·EOD 배치·Kafka CDC 기반 이벤트 발행 같은 금융 백엔드 신뢰성 패턴을 헥사고날 아키텍처 위에서 검증하는 게 목적입니다. 3인 팀(백엔드 1명, 프론트엔드 1명, 인프라 1명)으로 진행 중이며, 본인은 Azure 인프라 구축·Kubernetes 배포·CI/CD, 그리고 백엔드가 구현한 신뢰성 메커니즘이 실제 장애 상황에서도 동작하는지 검증하는 Infra/SRE 역할을 맡고 있습니다.",
+      "금융 거래의 신뢰성·분산 동시성 제어·장애 복구 메커니즘을 직접 구현하고 검증하기 위한 백엔드 실험 플랫폼입니다. 실제 서비스가 아니라, 분산 락·Saga·EOD 배치·Kafka CDC 기반 이벤트 발행 같은 금융 백엔드 신뢰성 패턴을 헥사고날 아키텍처 위에서 검증하는 게 목적입니다. 3인 팀(백엔드 1명, 프론트엔드 1명, 인프라 1명)으로 진행했으며, 본인은 Azure 인프라 구축·Kubernetes 배포·CI/CD, 그리고 백엔드가 구현한 신뢰성 메커니즘이 실제 장애 상황에서도 동작하는지 검증하는 Infra/SRE 역할을 맡았습니다.",
     architecture: {
       diagram: "none",
       description:
         "GitHub Actions가 fbrl-backend를 빌드해 Azure Container Registry에 푸시하고, Azure VM 위 k3s 클러스터에 self-hosted runner가 직접 배포합니다. Traefik이 Let's Encrypt(ACME HTTP-01)로 HTTPS를 발급해 백엔드를 노출하고, 프론트엔드는 Azure Static Web Apps로 별도 배포됩니다. 상태를 직접 들고 있는 Postgres(운영/데모 2대)와 Redis는 Azure 관리형 서비스로 분리했고, Kafka·Kafka Connect만 k3s 안에서 직접 운영하며 Debezium이 PostgreSQL 논리적 복제(WAL) 기반으로 Outbox 이벤트를 Kafka로 발행합니다.",
     },
+    cloudServices: [
+      { service: "Virtual Machine", usage: "k3s 클러스터 호스팅" },
+      { service: "Postgres Flexible Server ×2", usage: "운영·데모 DB (VNet 통합)" },
+      { service: "Azure Managed Redis", usage: "분산 락(Redisson)·캐시" },
+      { service: "Container Registry (ACR)", usage: "컨테이너 이미지 저장" },
+      { service: "Static Web Apps", usage: "프론트엔드 배포 (GitHub Actions 연동)" },
+    ],
     keyDecisions: [
       {
         q: "18개에 달하는 Azure 리소스를 왜 Terraform으로 관리했나?",
@@ -197,7 +219,7 @@ export const projects = [
       },
       {
         q: "Chaos Mesh를 먼저 설치하지 않고 왜 수동으로 장애를 주입했나?",
-        a: "Chaos Mesh 도입은 로드맵에 있지만, 도구부터 세팅하기보다 검증하고 싶은 질문(Kafka가 죽으면 얼마나 걸려 복구되는가, Saga 보상 트랜잭션이 실제로 동작하는가, 배치가 중간에 죽으면 재개할 수 있는가)을 먼저 명확히 하기로 했습니다. docker stop·kill -9 같은 수동 방식으로 3개 시나리오를 먼저 검증해 실제로 뭘 확인해야 하는지 파악한 뒤, Chaos Mesh는 이 수동 검증을 반복 가능하게 만드는 다음 단계로 남겨뒀습니다.",
+        a: "도구부터 세팅하기보다 검증하고 싶은 질문(Kafka가 죽으면 얼마나 걸려 복구되는가, Saga 보상 트랜잭션이 실제로 동작하는가, 배치가 중간에 죽으면 재개할 수 있는가)을 먼저 명확히 하는 쪽을 택했습니다. docker stop·kill -9 같은 수동 방식으로 3개 시나리오를 검증해, 자동화된 반복 주입 도구 없이도 이 프로젝트가 목표한 질문에는 답할 수 있다고 판단했습니다.",
       },
     ],
     metrics: [
@@ -235,14 +257,19 @@ export const projects = [
         "Oasis Tram과 Peakly를 거치며 넓어진 인프라 관심이, 이 프로젝트에서 실제 장애를 만들고 대응하는 과정을 통해 SRE/신뢰성 쪽으로 더 구체화됐습니다. 클라우드 인프라를 만드는 것만큼, 만든 인프라가 실패 상황에서 어떻게 행동하는지 검증하는 일에 흥미를 느낀다는 걸 확인한 프로젝트였습니다.",
     },
     evidence: [
-      { key: "fbrl-acr-overview", caption: "Azure Container Registry — fbrl-backend 이미지 태그·매니페스트" },
-      { key: "fbrl-kafka-connect-status", caption: "k3s 위 Kafka Connect — main/demo 커넥터 RUNNING 상태" },
-      { key: "fbrl-postgres-overview", caption: "Azure Postgres Flexible Server — 운영 DB 개요" },
+      { key: "fbrl-frontend-login", group: "서비스 화면", caption: "로그인 — Transaction Reliability Console" },
+      { key: "fbrl-frontend-dashboard", group: "서비스 화면", caption: "대시보드 — 거래·정산·감사 전 영역 운영 현황" },
+      { key: "fbrl-frontend-transfer", group: "서비스 화면", caption: "이체 — Maker-Checker 승인 워크플로 진입점" },
+      { key: "fbrl-frontend-audit-log", group: "서비스 화면", caption: "감사 로그 — 해시체인 기반 불변 감사로그" },
+      { key: "fbrl-grafana-cluster", group: "모니터링/인프라", caption: "Grafana — Kubernetes 클러스터 리소스 대시보드" },
+      { key: "fbrl-grafana-backend", group: "모니터링/인프라", caption: "Grafana — 백엔드 애플리케이션 메트릭" },
+      { key: "fbrl-argocd-status", group: "모니터링/인프라", caption: "ArgoCD — GitOps Application 상태" },
     ],
     stack: [
       "Azure",
       "Terraform",
       "k3s",
+      "ArgoCD",
       "Traefik",
       "GitHub Actions",
       "Docker",
@@ -251,6 +278,8 @@ export const projects = [
       "Debezium",
       "Redis",
       "PostgreSQL",
+      "Prometheus",
+      "Grafana",
       "Jaeger",
       "Spring Boot",
     ],

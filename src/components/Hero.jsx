@@ -5,7 +5,7 @@ import profilePhoto from "../assets/profile-photo.jpg";
 import "./Hero.css";
 
 const HERO_STATS = [
-  { to: 3, suffix: "", label: "케이스 스터디" },
+  { to: 3, suffix: "", label: "프로젝트" },
   { to: 3, suffix: "", label: "클라우드 환경 (AWS · 카카오클라우드 · Azure)" },
 ];
 

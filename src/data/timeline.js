@@ -47,10 +47,10 @@ export const timeline = [
     status: "archived",
   },
   {
-    date: "현재",
-    title: "FBRL 프로젝트 진행 중",
-    detail: "카오스 엔지니어링 기반 금융 백엔드 장애 복구 검증 프로젝트. 인프라를 담당하고 있습니다.",
-    tag: "In Progress",
-    status: "building",
+    date: "2026.08",
+    title: "FBRL",
+    detail: "카오스 엔지니어링 기반 금융 백엔드 장애 복구 검증 프로젝트. 3인 팀에서 인프라를 담당했습니다.",
+    tag: "Team project",
+    status: "stable",
   },
 ];

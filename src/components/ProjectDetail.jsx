@@ -9,6 +9,8 @@ import tramDashboard from "../assets/tram-dashboard.png";
 import tramAdmin from "../assets/tram-admin.png";
 import tramSimulation from "../assets/tram-simulation.png";
 import tramPrediction from "../assets/tram-prediction.png";
+import tramGrafana from "../assets/tram-grafana.png";
+import tramArgocd from "../assets/tram-argocd.png";
 import korailAwardTeam from "../assets/korail-hackathon-award-team.jpg";
 import peaklySystemArchitecture from "../assets/peakly-system-architecture.png";
 import peaklyCloudArchitecture from "../assets/peakly-cloud-architecture.png";
@@ -19,15 +21,23 @@ import peaklyOnboarding from "../assets/peakly-onboarding.png";
 import peaklyManagerLogin from "../assets/peakly-manager-login.png";
 import peaklyManagerDashboard from "../assets/peakly-manager-dashboard.png";
 import peaklyManagerApiKeys from "../assets/peakly-manager-api-keys.png";
-import fbrlAcr from "../assets/fbrl-acr-overview.png";
-import fbrlKafkaConnect from "../assets/fbrl-kafka-connect-status.png";
-import fbrlPostgres from "../assets/fbrl-postgres-overview.png";
+import argocdOverview from "../assets/argocd-applications-overview.png";
+import grafanaLoadTest from "../assets/grafana-load-test-hpa.png";
+import fbrlFrontendLogin from "../assets/fbrl-frontend-login.png";
+import fbrlFrontendDashboard from "../assets/fbrl-frontend-dashboard.png";
+import fbrlFrontendTransfer from "../assets/fbrl-frontend-transfer.png";
+import fbrlFrontendAuditLog from "../assets/fbrl-frontend-audit-log.png";
+import fbrlGrafanaCluster from "../assets/fbrl-grafana-cluster.png";
+import fbrlGrafanaBackend from "../assets/fbrl-grafana-backend.png";
+import fbrlArgocdStatus from "../assets/fbrl-argocd-status.png";
 
 const IMAGES = {
   "tram-dashboard": tramDashboard,
   "tram-admin": tramAdmin,
   "tram-simulation": tramSimulation,
   "tram-prediction": tramPrediction,
+  "tram-grafana": tramGrafana,
+  "tram-argocd": tramArgocd,
   "korail-hackathon-award-team": korailAwardTeam,
   "peakly-climax-graph": peaklyClimaxGraph,
   "peakly-graph-comparison": peaklyGraphComparison,
@@ -36,9 +46,15 @@ const IMAGES = {
   "peakly-manager-login": peaklyManagerLogin,
   "peakly-manager-dashboard": peaklyManagerDashboard,
   "peakly-manager-api-keys": peaklyManagerApiKeys,
-  "fbrl-acr-overview": fbrlAcr,
-  "fbrl-kafka-connect-status": fbrlKafkaConnect,
-  "fbrl-postgres-overview": fbrlPostgres,
+  "argocd-applications-overview": argocdOverview,
+  "grafana-load-test-hpa": grafanaLoadTest,
+  "fbrl-frontend-login": fbrlFrontendLogin,
+  "fbrl-frontend-dashboard": fbrlFrontendDashboard,
+  "fbrl-frontend-transfer": fbrlFrontendTransfer,
+  "fbrl-frontend-audit-log": fbrlFrontendAuditLog,
+  "fbrl-grafana-cluster": fbrlGrafanaCluster,
+  "fbrl-grafana-backend": fbrlGrafanaBackend,
+  "fbrl-argocd-status": fbrlArgocdStatus,
 };
 
 function evidenceGroups(evidence) {
@@ -115,6 +131,21 @@ export default function ProjectDetail({ project }) {
               <img src={peaklyCloudArchitecture} alt="Peakly 클라우드 아키텍처 다이어그램" />
               <figcaption className="diagram-caption">클라우드 아키텍처 — VPC·서브넷·AZ 구성 (부트캠프 최종 발표자료)</figcaption>
             </figure>
+          </div>
+        )}
+        {project.cloudServices && (
+          <div className="pd-cloud-services">
+            <p className="pd-cloud-services-title">사용한 클라우드 서비스</p>
+            <table className="pd-cloud-table">
+              <tbody>
+                {project.cloudServices.map((c) => (
+                  <tr key={c.service + c.usage}>
+                    <td className="pd-cloud-service mono">{c.service}</td>
+                    <td className="pd-cloud-usage">{c.usage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </section>
