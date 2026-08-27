@@ -49,7 +49,7 @@ export const timeline = [
   {
     date: "2026.08",
     title: "FBRL",
-    detail: "카오스 엔지니어링 기반 금융 백엔드 장애 복구 검증 프로젝트. 3인 팀에서 인프라를 담당했습니다.",
+    detail: "카오스 테스트 기반 금융 백엔드 장애 복구 검증 프로젝트. 3인 팀에서 인프라를 담당했습니다.",
     tag: "Team project",
     status: "stable",
   },

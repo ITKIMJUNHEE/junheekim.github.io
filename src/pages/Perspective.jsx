@@ -17,26 +17,18 @@ export default function Perspective() {
           <h1 className="section-title">기술을 설명하는 관점</h1>
           <p className="perspective-intro">{perspective.intro}</p>
 
-          <div className="perspective-cards">
-            {perspective.translations.map((t) => (
-              <div className="perspective-card card" key={t.project}>
-                <p className="perspective-card-project mono">{t.project}</p>
-                <div className="perspective-card-half perspective-card-before">
-                  <span className="perspective-card-label mono">기술적으로 한 일</span>
-                  <p>{t.before}</p>
-                </div>
-                <div className="perspective-card-arrow" aria-hidden="true">
-                  ↓
-                </div>
-                <div className="perspective-card-half perspective-card-after">
-                  <span className="perspective-card-label mono">쉽게 말하면</span>
-                  <p>{t.after}</p>
-                </div>
+          <div className="perspective-reflections">
+            {perspective.reflections.map((r) => (
+              <div className="perspective-reflection" key={r.project}>
+                <p className="perspective-reflection-project mono">{r.project}</p>
+                <blockquote className="perspective-reflection-quote">
+                  {r.paragraphs.map((p) => (
+                    <p key={p.slice(0, 16)}>{p}</p>
+                  ))}
+                </blockquote>
               </div>
             ))}
           </div>
-
-          <blockquote className="perspective-scenario">{perspective.scenario}</blockquote>
 
           <div className="perspective-experiences">
             {perspective.experiences.map((e) => (
