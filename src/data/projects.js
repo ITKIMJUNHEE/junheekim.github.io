@@ -70,6 +70,8 @@ export const projects = [
       forward:
         "코드를 배포 가능한 상태로 만드는 것과, 그 배포를 안정적으로 반복 가능하게 만드는 것은 서로 다른 기술이라는 걸 알게 됐습니다. 후자(배포 자동화, 관측성, 장애 대응)에 더 흥미를 느꼈고, 이 경험이 클라우드 인프라 쪽으로 방향을 잡는 계기가 됐습니다.",
     },
+    whyItMatters:
+      "이렇게 병목 지점을 숫자로 짚어낼 수 있으면, 고객에게 '지금 서버로는 부족하다'는 걸 감이 아니라 데이터로 보여줄 수 있습니다.",
     evidence: [
       { key: "korail-hackathon-award-team", group: "수상", caption: "Korail AI 해커톤 2025 최우수상(2등) — 4인 팀 수상 사진" },
       { key: "tram-dashboard", group: "서비스 화면", caption: "시민 대시보드 — 실시간 날씨, 정거장 지도, 재난/민원 관제 콘솔" },
@@ -160,6 +162,8 @@ export const projects = [
       forward:
         "Oasis Tram에서 막 생기기 시작한 인프라 쪽 관심이, 이 프로젝트에서 실제 팀 규모의 GitOps 운영을 직접 보면서 훨씬 구체적으로 굳어졌습니다. 무언가를 만드는 것보다, 여러 사람이 만든 걸 안정적으로 돌아가게 하는 쪽에 더 끌린다는 걸 확인한 프로젝트였습니다.",
     },
+    whyItMatters:
+      "왜 안 되는지, 왜 이 방법으로 고쳤는지 설명할 수 있어야 이 기술이 필요한 이유를 담백하게 설명할 수 있다고 생각합니다.",
     evidence: [
       { key: "peakly-climax-graph", group: "서비스 화면", caption: "클라이맥스 그래프 — 장면 감정(arousal) 타임라인 시각화" },
       { key: "peakly-graph-comparison", group: "서비스 화면", caption: "그래프 비교 추천 — pgvector 코사인 유사도 기반" },
@@ -256,6 +260,7 @@ export const projects = [
       forward:
         "Oasis Tram과 Peakly를 거치며 넓어진 인프라 관심이, 이 프로젝트에서 실제 장애를 만들고 대응하는 과정을 통해 SRE/신뢰성 쪽으로 더 구체화됐습니다. 클라우드 인프라를 만드는 것만큼, 만든 인프라가 실패 상황에서 어떻게 행동하는지 검증하는 일에 흥미를 느낀다는 걸 확인한 프로젝트였습니다.",
     },
+    whyItMatters: "장애가 나면 복구만 되는 게 아니라, 혹시 다른 방식으로 새는지 같이 확인해야 한다는 걸 배웠습니다.",
     evidence: [
       { key: "fbrl-frontend-login", group: "서비스 화면", caption: "로그인 — Transaction Reliability Console" },
       { key: "fbrl-frontend-dashboard", group: "서비스 화면", caption: "대시보드 — 거래·정산·감사 전 영역 운영 현황" },

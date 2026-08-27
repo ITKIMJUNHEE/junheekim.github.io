@@ -39,9 +39,19 @@
 
 @media (max-width: 520px) {
   .sitenav-links {
-    gap: 14px;
+    gap: 12px;
   }
   .sitenav-links a {
-    font-size: 13px;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+  .sitenav-brand {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sitenav-inner {
+    overflow-x: auto;
   }
 }

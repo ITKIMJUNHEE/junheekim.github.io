@@ -1,0 +1,127 @@
+.perspective-page {
+  padding-top: 20px;
+}
+
+.perspective-intro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 640px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.perspective-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.perspective-card {
+  padding: 22px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.perspective-card-project {
+  font-size: 12px;
+  color: var(--accent-teal);
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.perspective-card-half {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.perspective-card-before {
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.perspective-card-after {
+  background: var(--accent-teal-bg);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+}
+
+.perspective-card-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}
+
+.perspective-card-half p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0;
+}
+
+.perspective-card-arrow {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 15px;
+}
+
+.perspective-scenario {
+  margin: 0 0 40px;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--accent-amber-bg);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-left: 4px solid var(--accent-amber);
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text);
+  font-style: italic;
+}
+
+.perspective-experiences {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.perspective-exp-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.perspective-exp-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.perspective-exp-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.perspective-exp-photo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 560px) {
+  .perspective-exp-item {
+    flex-wrap: wrap;
+  }
+}

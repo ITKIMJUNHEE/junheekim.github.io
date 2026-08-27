@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import StatusChip from "./StatusChip";
 import Lightbox from "./Lightbox";
 import "./ProjectDetail.css";
@@ -222,6 +223,10 @@ export default function ProjectDetail({ project }) {
         </div>
       </section>
 
+      {project.whyItMatters && (
+        <p className="pd-why-matters">{project.whyItMatters}</p>
+      )}
+
       <div className="project-footer">
         <div className="project-stack">
           {project.stack.map((s) => (
@@ -234,6 +239,10 @@ export default function ProjectDetail({ project }) {
           Repository ↗
         </a>
       </div>
+
+      <Link to="/perspective" className="pd-perspective-link">
+        이 경험을 다른 시각에서도 정리해봤습니다 → 관점 보기
+      </Link>
 
       {lightbox && (
         <Lightbox
