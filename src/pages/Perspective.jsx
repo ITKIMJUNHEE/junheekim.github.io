@@ -4,15 +4,6 @@ import { perspective } from "../data/perspective";
 import studentCouncilPhoto from "../assets/student-council-29th-inauguration.jpg";
 import "./Perspective.css";
 
-const FIELDS = [
-  { key: "situation", label: "상황" },
-  { key: "problem", label: "문제" },
-  { key: "response", label: "대응" },
-  { key: "result", label: "결과" },
-  { key: "lesson", label: "배운 점" },
-  { key: "application", label: "적용 계획" },
-];
-
 export default function Perspective() {
   return (
     <>
@@ -29,15 +20,24 @@ export default function Perspective() {
           <div className="perspective-reflections">
             {perspective.reflections.map((r) => (
               <div className="perspective-reflection card" key={r.project}>
-                <p className="perspective-reflection-project mono">{r.project}</p>
-                <dl className="perspective-reflection-dl">
-                  {FIELDS.map((f) => (
-                    <div className="perspective-field" key={f.key}>
-                      <dt>{f.label}</dt>
-                      <dd>{r[f.key]}</dd>
-                    </div>
-                  ))}
-                </dl>
+                <p className="perspective-reflection-project mono">
+                  {r.project}
+                  {r.subtitle && <span className="perspective-reflection-subtitle">{r.subtitle}</span>}
+                </p>
+                <div className="perspective-reflection-body">
+                  {r.project === "학생회" && (
+                    <img
+                      className="perspective-reflection-photo"
+                      src={studentCouncilPhoto}
+                      alt="2025 컴퓨터공학부 29대 학생회 취임식"
+                    />
+                  )}
+                  <div className="perspective-reflection-text">
+                    {r.paragraphs.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -49,9 +49,6 @@ export default function Perspective() {
                   {e.icon}
                 </span>
                 <span className="perspective-exp-text">{e.text}</span>
-                {e.icon === "🏫" && (
-                  <img className="perspective-exp-photo" src={studentCouncilPhoto} alt="" />
-                )}
               </div>
             ))}
           </div>
