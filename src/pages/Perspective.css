@@ -20,33 +20,64 @@
 
 .perspective-reflection {
   padding: 26px 28px;
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-card);
 }
 
 .perspective-reflection-project {
-  font-size: 12.5px;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--accent-teal);
   letter-spacing: 0.03em;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
-.perspective-reflection-quote {
+.perspective-reflection-dl {
   margin: 0;
-  padding-left: 18px;
-  border-left: 3px solid var(--accent-amber);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
-.perspective-reflection-quote p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--text);
+.perspective-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 14px;
+  border-left: 3px solid var(--border);
+}
+
+.perspective-field:nth-child(1) {
+  border-left-color: var(--accent-blue);
+}
+.perspective-field:nth-child(2) {
+  border-left-color: var(--accent-amber);
+}
+.perspective-field:nth-child(3) {
+  border-left-color: var(--accent-teal);
+}
+.perspective-field:nth-child(4) {
+  border-left-color: var(--accent-teal);
+}
+.perspective-field:nth-child(5) {
+  border-left-color: var(--accent-slate);
+}
+.perspective-field:nth-child(6) {
+  border-left-color: var(--accent-blue);
+}
+
+.perspective-field dt {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+}
+
+.perspective-field dd {
   margin: 0;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text);
 }
 
 .perspective-experiences {

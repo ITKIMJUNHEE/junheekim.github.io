@@ -4,6 +4,15 @@ import { perspective } from "../data/perspective";
 import studentCouncilPhoto from "../assets/student-council-29th-inauguration.jpg";
 import "./Perspective.css";
 
+const FIELDS = [
+  { key: "situation", label: "상황" },
+  { key: "problem", label: "문제" },
+  { key: "response", label: "대응" },
+  { key: "result", label: "결과" },
+  { key: "lesson", label: "배운 점" },
+  { key: "application", label: "적용 계획" },
+];
+
 export default function Perspective() {
   return (
     <>
@@ -19,13 +28,16 @@ export default function Perspective() {
 
           <div className="perspective-reflections">
             {perspective.reflections.map((r) => (
-              <div className="perspective-reflection" key={r.project}>
+              <div className="perspective-reflection card" key={r.project}>
                 <p className="perspective-reflection-project mono">{r.project}</p>
-                <blockquote className="perspective-reflection-quote">
-                  {r.paragraphs.map((p) => (
-                    <p key={p.slice(0, 16)}>{p}</p>
+                <dl className="perspective-reflection-dl">
+                  {FIELDS.map((f) => (
+                    <div className="perspective-field" key={f.key}>
+                      <dt>{f.label}</dt>
+                      <dd>{r[f.key]}</dd>
+                    </div>
                   ))}
-                </blockquote>
+                </dl>
               </div>
             ))}
           </div>
