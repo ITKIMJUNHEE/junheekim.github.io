@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Lightbox from "../components/Lightbox";
 import Timeline from "../components/Timeline";
+import GrowthSequence from "../components/GrowthSequence";
 import Contact from "../components/Contact";
 import { profile, about } from "../data/profile";
 import studentCouncilPhoto from "../assets/student-council-29th-inauguration.jpg";
@@ -91,6 +92,8 @@ export default function AboutPage() {
               </div>
             </dl>
           </div>
+
+          <GrowthSequence />
         </div>
       </section>
 

@@ -340,20 +340,6 @@
   text-align: center;
 }
 
-.pd-perspective-link {
-  display: block;
-  text-align: center;
-  margin-top: 4px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--accent-teal);
-  text-decoration: none;
-}
-
-.pd-perspective-link:hover {
-  text-decoration: underline;
-}
-
 .project-footer {
   display: flex;
   align-items: center;
