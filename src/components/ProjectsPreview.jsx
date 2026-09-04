@@ -8,7 +8,7 @@ export default function ProjectsPreview() {
     <section id="projects" className="projects-preview section">
       <div className="container">
         <span className="section-kicker">Projects</span>
-        <h2 className="section-title">프로젝트 {projects.length}개</h2>
+        <h2 className="section-title">만든 프로젝트들</h2>
         <p className="section-sub">
           완성도보다 실제로 무엇을 결정하고, 어디서 막혔고, 어떻게 풀었는지를 남겼습니다. 카드를 눌러 각
           프로젝트의 상세 페이지로 이동합니다.

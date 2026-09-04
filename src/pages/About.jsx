@@ -36,15 +36,6 @@ export default function AboutPage() {
                   <img src={studentCouncilPhoto} alt="" />
                 </button>
               </p>
-
-              <div className="about-soft-skills">
-                {about.softSkills.map((s) => (
-                  <div className="about-soft-skill card" key={s.title}>
-                    <h3 className="about-soft-skill-title">{s.title}</h3>
-                    <p className="about-soft-skill-detail">{s.detail}</p>
-                  </div>
-                ))}
-              </div>
             </div>
 
             <dl className="about-facts card">
@@ -92,7 +83,16 @@ export default function AboutPage() {
               </div>
             </dl>
           </div>
+        </div>
+      </section>
 
+      <section className="growth-section section">
+        <div className="container">
+          <span className="section-kicker">Growth</span>
+          <h2 className="section-title">세 클라우드를 익힌 속도</h2>
+          <p className="section-sub">
+            짧은 기간 안에 세 클라우드를 실제로 손으로 다뤄본 속도를 정리했습니다.
+          </p>
           <GrowthSequence />
         </div>
       </section>

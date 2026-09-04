@@ -1,0 +1,9 @@
+.proposals-page {
+  padding-top: 20px;
+}
+
+.proposals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

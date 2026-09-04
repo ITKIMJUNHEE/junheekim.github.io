@@ -1,16 +1,3 @@
-.growth-sequence {
-  margin: 40px 0;
-}
-
-.growth-sequence-kicker {
-  display: block;
-  font-size: 12.5px;
-  color: var(--accent-teal);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
 .growth-sequence-flow {
   display: flex;
   align-items: stretch;

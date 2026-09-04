@@ -4,7 +4,6 @@ import "./GrowthSequence.css";
 export default function GrowthSequence() {
   return (
     <div className="growth-sequence">
-      <span className="growth-sequence-kicker mono">세 클라우드를, 8개월 만에</span>
       <div className="growth-sequence-flow">
         {about.growthSequence.map((s, i) => (
           <div className="growth-sequence-item" key={s.step}>
