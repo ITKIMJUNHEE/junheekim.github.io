@@ -10,7 +10,7 @@ export default function AboutTeaser() {
         <h2 className="section-title">{about.title}</h2>
         <p className="about-teaser-summary">{about.summary}</p>
         <Link to="/about" className="about-teaser-link">
-          더 자세히 보기 →
+          더 자세히 보기 <span className="link-arrow">→</span>
         </Link>
       </div>
     </section>

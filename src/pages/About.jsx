@@ -1,7 +1,5 @@
 import { useState } from "react";
 import Lightbox from "../components/Lightbox";
-import Timeline from "../components/Timeline";
-import GrowthSequence from "../components/GrowthSequence";
 import Contact from "../components/Contact";
 import { profile, about } from "../data/profile";
 import studentCouncilPhoto from "../assets/student-council-29th-inauguration.jpg";
@@ -86,18 +84,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="growth-section section">
-        <div className="container">
-          <span className="section-kicker">Growth</span>
-          <h2 className="section-title">세 클라우드를 익힌 속도</h2>
-          <p className="section-sub">
-            짧은 기간 안에 세 클라우드를 실제로 손으로 다뤄본 속도를 정리했습니다.
-          </p>
-          <GrowthSequence />
-        </div>
-      </section>
-
-      <Timeline />
       <Contact />
 
       {open && (

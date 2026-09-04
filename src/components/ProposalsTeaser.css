@@ -1,0 +1,67 @@
+.proposals-teaser {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.proposals-teaser-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 32px 36px;
+  background: var(--accent-highlight-bg);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proposals-teaser-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.proposals-teaser-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.proposals-teaser-sub {
+  margin-bottom: 0;
+}
+
+.proposals-teaser-icons {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.proposals-teaser-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+@media (max-width: 640px) {
+  .proposals-teaser-card {
+    padding: 24px;
+  }
+
+  .proposals-teaser-icons {
+    gap: 8px;
+  }
+
+  .proposals-teaser-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}

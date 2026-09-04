@@ -6,6 +6,7 @@ import AboutPage from "./pages/About";
 import ProjectPage from "./pages/ProjectPage";
 import StudyPage from "./pages/StudyPage";
 import ProposalsPage from "./pages/Proposals";
+import WorkingStylePage from "./pages/WorkingStyle";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/projects/:slug" element={<ProjectPage />} />
           <Route path="/study" element={<StudyPage />} />
           <Route path="/proposals" element={<ProposalsPage />} />
+          <Route path="/working-style" element={<WorkingStylePage />} />
         </Routes>
       </main>
     </BrowserRouter>

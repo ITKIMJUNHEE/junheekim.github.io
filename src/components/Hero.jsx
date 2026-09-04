@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import StatusBar from "./StatusBar";
 import CountUp from "./CountUp";
 import { profile } from "../data/profile";
@@ -9,7 +10,21 @@ const HERO_STATS = [
   { to: 3, suffix: "", label: "클라우드 환경 (AWS · 카카오클라우드 · Azure)" },
 ];
 
+const TAGLINE_WORDS = profile.taglineMain.split(" ");
+
 export default function Hero() {
+  const [played, setPlayed] = useState(false);
+
+  useEffect(() => {
+    const reducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) return;
+    const frame = requestAnimationFrame(() => setPlayed(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   return (
     <section id="hero" className="hero section">
       <div className="container hero-grid">
@@ -22,7 +37,14 @@ export default function Hero() {
           <p className="hero-role">
             {profile.role} <span className="hero-role-sep">/</span> {profile.roleSub}
           </p>
-          <p className="hero-tagline-main">{profile.taglineMain}</p>
+          <p className={`hero-tagline-main${played ? " is-playing" : ""}`}>
+            {TAGLINE_WORDS.map((word, i) => (
+              <span className="hero-tagline-word" style={{ "--word-delay": `${i * 40}ms` }} key={i}>
+                {word}
+                {i < TAGLINE_WORDS.length - 1 ? " " : ""}
+              </span>
+            ))}
+          </p>
           <p className="hero-tagline-sub">{profile.taglineSub}</p>
 
           <div className="hero-stats">

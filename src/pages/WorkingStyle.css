@@ -1,0 +1,28 @@
+.working-style-page {
+  padding-top: 20px;
+}
+
+.working-style-traits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+  max-width: 640px;
+}
+
+.working-style-trait {
+  padding: 20px 24px;
+}
+
+.working-style-trait-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-teal);
+  margin-bottom: 6px;
+}
+
+.working-style-trait-detail {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}

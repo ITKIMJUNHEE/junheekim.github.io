@@ -10,7 +10,6 @@ export default function GrowthSequence() {
             <div className="growth-sequence-card card">
               <span className="growth-sequence-step mono">{s.step}</span>
               <h3 className="growth-sequence-title">{s.title}</h3>
-              <span className="growth-sequence-date mono">{s.date}</span>
               <p className="growth-sequence-text">{s.text}</p>
             </div>
             {i < about.growthSequence.length - 1 && (

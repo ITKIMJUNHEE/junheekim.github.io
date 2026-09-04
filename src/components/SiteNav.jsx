@@ -7,6 +7,7 @@ const LINKS = [
   { to: "/#projects", label: "프로젝트" },
   { to: "/study", label: "학습" },
   { to: "/proposals", label: "제안" },
+  { to: "/working-style", label: "방식" },
   { to: "/#contact", label: "연락" },
 ];
 

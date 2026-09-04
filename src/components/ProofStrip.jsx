@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Reveal from "./Reveal";
 import "./ProofStrip.css";
 
 const PROOFS = [
@@ -50,10 +51,16 @@ export default function ProofStrip() {
 
         <div className="proof-grid">
           {PROOFS.map((p, i) => (
-            <Link to={p.to} className="proof-card card" key={p.project + i}>
+            <Reveal
+              as={Link}
+              to={p.to}
+              className={`proof-card card${i === 0 ? " proof-card-lg" : ""}`}
+              delay={i * 80}
+              key={p.project + i}
+            >
               <span className="proof-card-project mono">{p.project}</span>
               <p className="proof-card-text">{highlightNumbers(p.text)}</p>
-            </Link>
+            </Reveal>
           ))}
         </div>
       </div>

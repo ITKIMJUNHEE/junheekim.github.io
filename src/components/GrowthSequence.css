@@ -14,7 +14,7 @@
 
 .growth-sequence-card {
   flex: 1;
-  padding: 18px 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -27,12 +27,8 @@
 }
 
 .growth-sequence-title {
-  font-size: 15.5px;
-}
-
-.growth-sequence-date {
-  font-size: 11.5px;
-  color: var(--text-faint);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .growth-sequence-text {

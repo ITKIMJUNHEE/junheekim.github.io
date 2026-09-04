@@ -4,9 +4,15 @@
   gap: 4px;
   padding: 30px 4px 4px;
   margin-bottom: 20px;
-  overflow-x: auto;
-  overflow-y: visible;
-  scrollbar-width: thin;
+  overflow: visible;
+}
+
+@media (max-width: 640px) {
+  .tram-line {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
 }
 
 .tram-track {
@@ -248,7 +254,8 @@
   position: absolute;
   bottom: calc(100% + 10px);
   left: 50%;
-  width: 210px;
+  width: max-content;
+  max-width: min(220px, calc(100vw - 32px));
   padding: 10px 12px;
   border-radius: var(--radius-md);
   background: var(--text);
@@ -256,6 +263,8 @@
   font-size: 12.5px;
   line-height: 1.55;
   text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
   opacity: 0;
   transform: translateX(-50%) translateY(4px);
   transition: opacity 0.15s ease, transform 0.15s ease;
