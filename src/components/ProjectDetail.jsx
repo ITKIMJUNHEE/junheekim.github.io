@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import StatusChip from "./StatusChip";
 import Lightbox from "./Lightbox";
+import TramLineBadge from "./TramLineBadge";
 import "./ProjectDetail.css";
 import "./diagrams/diagrams.css";
 
@@ -78,6 +79,7 @@ export default function ProjectDetail({ project }) {
   return (
     <article id={project.id} className="project-detail card">
       <header className="pd-head">
+        {project.timelineStop && <TramLineBadge stopTitle={project.timelineStop} />}
         <div className="pd-head-main">
           <h3 className="pd-name">{project.name}</h3>
           <StatusChip tone={project.status}>{project.statusLabel}</StatusChip>

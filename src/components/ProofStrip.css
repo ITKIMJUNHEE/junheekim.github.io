@@ -1,0 +1,55 @@
+.proof-strip {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.proof-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.proof-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-teal);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.proof-card-project {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent-teal);
+}
+
+.proof-card-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.proof-num {
+  font-weight: 600;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .proof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+}

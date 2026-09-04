@@ -23,9 +23,6 @@
 }
 
 .perspective-reflection-project {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
   font-size: 13px;
   font-weight: 600;
   color: var(--accent-teal);
@@ -33,33 +30,10 @@
   margin-bottom: 18px;
 }
 
-.perspective-reflection-subtitle {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: normal;
-  color: var(--text-muted);
-}
-
-.perspective-reflection-body {
-  display: flex;
-  gap: 20px;
-}
-
-.perspective-reflection-photo {
-  width: 96px;
-  height: 96px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 1px solid var(--border);
-}
-
 .perspective-reflection-text {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  flex: 1;
 }
 
 .perspective-reflection-text p {
@@ -100,20 +74,6 @@
 @media (max-width: 560px) {
   .perspective-reflection {
     padding: 20px;
-  }
-
-  .perspective-reflection-project {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .perspective-reflection-body {
-    flex-direction: column;
-  }
-
-  .perspective-reflection-photo {
-    width: 100%;
-    height: 160px;
   }
 
   .perspective-exp-item {

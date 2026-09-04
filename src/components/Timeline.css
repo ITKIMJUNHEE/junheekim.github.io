@@ -1,70 +1,136 @@
-.timeline-list {
+.tram-line {
   position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-left: 28px;
-  margin: 0;
-  list-style: none;
+  gap: 4px;
+  padding: 30px 4px 4px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
 
-.timeline-list::before {
+.tram-line::before {
   content: "";
   position: absolute;
-  left: 5px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
+  left: 20px;
+  right: 20px;
+  top: 36px;
+  height: 2px;
   background: var(--border);
 }
 
-.timeline-item {
+.tram-stop {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 108px;
+  min-width: 108px;
+  background: none;
+  border: none;
+  padding: 0 4px 10px;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.timeline-marker {
-  position: absolute;
-  left: -28px;
-  top: 22px;
+.tram-stop-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: var(--surface);
-  border: 2px solid var(--accent-teal);
+  border: 2px solid var(--border);
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
 }
 
-.timeline-card {
-  padding: 20px 22px;
+.tram-stop:hover .tram-stop-dot,
+.tram-stop:focus-visible .tram-stop-dot,
+.tram-stop.is-active .tram-stop-dot {
+  border-color: var(--accent-teal);
+  transform: scale(1.15);
 }
 
-.timeline-card-head {
+.tram-stop.is-current .tram-stop-dot {
+  background: var(--accent-teal);
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 4px var(--accent-teal-bg);
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+.tram-stop-label {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
+  gap: 2px;
+  text-align: center;
 }
 
-.timeline-date {
+.tram-stop-date {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.tram-stop-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.tram-stop.is-active .tram-stop-title,
+.tram-stop.is-current .tram-stop-title {
+  color: var(--text);
+}
+
+.tram-detail {
+  padding: 22px 26px;
+}
+
+.tram-detail-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tram-detail-date {
   font-size: 12.5px;
   color: var(--text-faint);
 }
 
-.timeline-title {
-  font-size: 17px;
-  margin-bottom: 6px;
+.tram-detail-title {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.timeline-detail {
-  font-size: 14px;
-  line-height: 1.7;
+.tram-current-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent-teal);
+  background: var(--accent-teal-bg);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  padding: 3px 8px;
+  border-radius: 999px;
 }
 
-@media (max-width: 560px) {
-  .timeline-list {
-    padding-left: 22px;
+.tram-detail-text {
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .tram-line::before {
+    left: 4px;
+    right: 4px;
   }
-  .timeline-marker {
-    left: -22px;
+
+  .tram-detail {
+    padding: 18px 20px;
   }
 }

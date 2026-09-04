@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Contact from "../components/Contact";
 import { perspective } from "../data/perspective";
-import studentCouncilPhoto from "../assets/student-council-29th-inauguration.jpg";
 import "./Perspective.css";
 
 export default function Perspective() {
@@ -20,23 +19,11 @@ export default function Perspective() {
           <div className="perspective-reflections">
             {perspective.reflections.map((r) => (
               <div className="perspective-reflection card" key={r.project}>
-                <p className="perspective-reflection-project mono">
-                  {r.project}
-                  {r.subtitle && <span className="perspective-reflection-subtitle">{r.subtitle}</span>}
-                </p>
-                <div className="perspective-reflection-body">
-                  {r.project === "학생회" && (
-                    <img
-                      className="perspective-reflection-photo"
-                      src={studentCouncilPhoto}
-                      alt="2025 컴퓨터공학부 29대 학생회 취임식"
-                    />
-                  )}
-                  <div className="perspective-reflection-text">
-                    {r.paragraphs.map((p, i) => (
-                      <p key={i}>{p}</p>
-                    ))}
-                  </div>
+                <p className="perspective-reflection-project mono">{r.project}</p>
+                <div className="perspective-reflection-text">
+                  {r.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
                 </div>
               </div>
             ))}

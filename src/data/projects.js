@@ -1,6 +1,7 @@
 export const projects = [
   {
     id: "oasis-tram",
+    timelineStop: "Oasis Tram 확장",
     name: "Oasis Tram",
     tagline: "대전 트램 AI 정책 시뮬레이션 & 관제 플랫폼",
     status: "archived",
@@ -100,6 +101,7 @@ export const projects = [
   },
   {
     id: "peakly",
+    timelineStop: "부트캠프(Peakly)",
     name: "Peakly",
     tagline: "감정 곡선 기반 영화 추천 서비스",
     status: "archived",
@@ -192,10 +194,11 @@ export const projects = [
   },
   {
     id: "fbrl",
+    timelineStop: "FBRL",
     name: "FBRL",
     tagline: "금융 백엔드 신뢰성 검증 실험 플랫폼 (Financial Backend Reliability Lab)",
-    status: "stable",
-    statusLabel: "Stable",
+    status: "archived",
+    statusLabel: "Archived",
     repo: "https://github.com/fbrlTeam/fbrl-infra",
     role: "3인 팀 · Infra / SRE 담당",
     overview:
